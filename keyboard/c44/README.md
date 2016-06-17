@@ -1,5 +1,6 @@
 Custom split keyboard firmware
 ======
+# For the newer version, [see here](https://github.com/ahtn/tmk_keyboard/tree/master/keyboard/split_keyboard)
 
 Split keyboard firmware for Arduino Pro Micro or other ATmega32u4
 based boards.
