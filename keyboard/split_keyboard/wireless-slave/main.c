@@ -235,10 +235,14 @@ int main(void) {
         ecb_state.payload[i] = matrix_get_row(i);
       }
 
+#ifndef NO_ENCRYPT
       uint8_t encrypted_data[AES_BUF_LEN];
       ecb_encrypt(&ecb_state, &aes_ctx, encrypted_data);
 
       nrf_status = nrf_load_tx_fifo(encrypted_data, RF_BUFFER_LEN);
+#else
+      nrf_status = nrf_load_tx_fifo(&ecb_state, RF_BUFFER_LEN);
+#endif
       nrf_send_one();
 
       if(scan.changed) {

@@ -15,9 +15,17 @@ enum function_id {
     PROMICRO_PROGRAM,
 };
 
-#define AC_FN1            ACTION_LAYER_ONESHOT(3)
-#define AC_FN2            ACTION_LAYER_ONESHOT(4)
-#define AC_FN3            ACTION_LAYER_ONESHOT(5)
+#define QWERTY 0
+#define INV_COL 1
+#define DVORAK 1
+#define COLEMAK 2
+#define SYMB 3
+#define FUNC 4
+#define MEDIA 5
+
+#define AC_FN1            ACTION_LAYER_ONESHOT(SYMB)
+#define AC_FN2            ACTION_LAYER_ONESHOT(FUNC)
+#define AC_FN3            ACTION_LAYER_ONESHOT(MEDIA)
 #define AC_SSFT           ACTION_MODS_ONESHOT(MOD_LSFT)
 #define AC_SFT_ENT        ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ENT)
 
@@ -33,7 +41,7 @@ enum function_id {
 
 const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
-    [0] = ACTIONMAP(
+    [QWERTY] = ACTIONMAP(
         /* left hand */
             TAB     , Q   , W    , E   , R   , T ,
             SFT_ENT , A   , S    , D   , F   , G ,
@@ -47,7 +55,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 #ifdef INVERSE_COLEMAK
     /* inverse colemak */
-    [1] = ACTIONMAP(
+    [INV_COL] = ACTIONMAP(
         /* left hand */
             TRNS , Q    , W    , K    , S    , F ,
             TRNS , A    , D    , G    , E    , T ,
@@ -61,7 +69,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 #else
     /* dvorak */
-    [1] = ACTIONMAP(
+    [DVORAK] = ACTIONMAP(
         /* left hand */
             TRNS , QUOT , COMM , DOT  , P    , Y ,
             TRNS , A    , O    , E    , U    , I ,
@@ -75,7 +83,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 #endif
     /* colemak */
-    [2] = ACTIONMAP(
+    [COLEMAK] = ACTIONMAP(
         /* left hand */
             TRNS , Q    , W    , F    , P    , G ,
             TRNS , A    , R    , S    , T    , D ,
@@ -88,7 +96,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS , TRNS , TRNS , TRNS , TRNS
    ),
    /* symbol */
-   [3] = ACTIONMAP(
+   [SYMB] = ACTIONMAP(
        /* left hand */
             TRNS , s(BSLS) , 2    , 3    , 4    , 5       ,
             TRNS , 1       , BSLS , s(9) , LBRC , s(LBRC) ,
@@ -101,7 +109,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS    , TRNS , TRNS , TRNS , TRNS
     ),
     /* fn */
-    [4] = ACTIONMAP(
+    [FUNC] = ACTIONMAP(
         /* left hand */
             INS  , DEL  , HOME , UP   , END  , PGUP ,
             TRNS , ESC  , LEFT , DOWN , RGHT , PGDN ,
@@ -114,7 +122,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS    , TRNS    , TRNS    , TRNS    , TRNS
         ),
     /* media */
-    [5] = ACTIONMAP(
+    [MEDIA] = ACTIONMAP(
         /* left hand */
             NO   , PSCR , MPLY , VOLU , MSTP   , F11     ,
             BSPC , MUTE , MPRV , VOLD , MNXT   , APP     ,

@@ -39,7 +39,8 @@ F_CPU = 2000000
 # Optimisation level
 OPT = 3
 
-OPT_DEFS += -DUSE_AUTO_ACK=1
+EXTRA_FLAGS =
+OPT_DEFS += -DUSE_AUTO_ACK=1 $(EXTRA_FLAGS)
 OPT_DEFS += -DF_OSC=$(F_OSC)UL
 
 EEPROM_FILE = ../eeprom-split.eep
