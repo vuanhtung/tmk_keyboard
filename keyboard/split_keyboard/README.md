@@ -30,7 +30,9 @@ will need:
 
 Alternatively, you can use any sort of cable and socket that has at least 3
 wires. If you want to use I2C to communicate between halves, you will need a
-cable with at least 4 wires and 2x 4.7Ω pull-up resistors.
+cable with at least 4 wires and 2x 4.7kΩ pull-up resistors:
+
+![i2c wiring](imgs/split-keyboard-i2c-schematic.svg)
 
 Wiring
 ------
