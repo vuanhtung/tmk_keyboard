@@ -16,7 +16,7 @@
 
 #define BUFFER_POS_INC() (slave_buffer_pos = (slave_buffer_pos+1)%SLAVE_BUFFER_SIZE)
 
-volatile uint8_t slave_buffer[SLAVE_BUFFER_SIZE];
+volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE];
 
 static volatile uint8_t slave_buffer_pos;
 static volatile bool slave_has_register_set = false;
@@ -136,7 +136,7 @@ ISR(TWI_vect) {
         }
         slave_has_register_set = true;
       } else {
-        slave_buffer[slave_buffer_pos] = TWDR;
+        i2c_slave_buffer[slave_buffer_pos] = TWDR;
         BUFFER_POS_INC();
       }
       break;
@@ -145,7 +145,7 @@ ISR(TWI_vect) {
     case TW_ST_DATA_ACK:
       // master has addressed this device as a slave transmitter and is
       // requesting data.
-      TWDR = slave_buffer[slave_buffer_pos];
+      TWDR = i2c_slave_buffer[slave_buffer_pos];
       BUFFER_POS_INC();
       break;
 

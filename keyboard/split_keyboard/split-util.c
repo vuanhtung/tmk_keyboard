@@ -6,8 +6,10 @@
 #include <avr/eeprom.h>
 #include "split-util.h"
 #include "matrix.h"
+#include "i2c.h"
 #include "serial.h"
 #include "keyboard.h"
+#include "config.h"
 
 volatile bool isLeftHand = true;
 
@@ -25,7 +27,7 @@ static void keyboard_master_setup(void) {
 
 static void keyboard_slave_setup(void) {
 #ifdef USE_I2C
-    i2c_slave_init();
+    i2c_slave_init(SLAVE_I2C_ADDRESS);
 #else
     serial_slave_init();
 #endif
@@ -54,4 +56,13 @@ void keyboard_slave_loop(void) {
    while (1) {
       matrix_slave_scan();
    }
+}
+
+// this code runs before the usb and keyboard is initialized
+void matrix_setup(void) {
+    split_keyboard_setup();
+
+    if (!has_usb()) {
+        keyboard_slave_loop();
+    }
 }

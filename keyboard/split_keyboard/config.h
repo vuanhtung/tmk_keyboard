@@ -31,6 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 6
 
+/* use i2c instead of serial */
+/* #define USE_I2C */
+
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 

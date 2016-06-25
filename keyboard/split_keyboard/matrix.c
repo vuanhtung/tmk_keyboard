@@ -32,6 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "serial.h"
 #include "split-util.h"
 #include "pro-micro.h"
+#include "config.h"
 
 #ifndef DEBOUNCE
 #   define DEBOUNCE	5
@@ -62,15 +63,6 @@ inline
 uint8_t matrix_cols(void)
 {
     return MATRIX_COLS;
-}
-
-// this code runs before the usb and keyboard is initialized
-void matrix_setup(void) {
-    split_keyboard_setup();
-
-    if (!has_usb()) {
-        keyboard_slave_loop();
-    }
 }
 
 void matrix_init(void)
@@ -127,7 +119,7 @@ int i2c_transaction(void) {
     int err = i2c_master_start(SLAVE_I2C_ADDRESS + I2C_WRITE);
     if (err) goto i2c_error;
 
-    // Matrix stored at 0x00-0x03
+    // start of matrix stored at 0x00
     err = i2c_master_write(0x00);
     if (err) goto i2c_error;
 
@@ -201,9 +193,16 @@ void matrix_slave_scan(void) {
 
     int offset = (isLeftHand) ? 0 : (MATRIX_ROWS / 2);
 
+#ifdef USE_I2C
+    for (int i = 0; i < ROWS_PER_HAND; ++i) {
+        /* i2c_slave_buffer[i] = matrix[offset+i]; */
+        i2c_slave_buffer[i] = matrix[offset+i];
+    }
+#else
     for (int i = 0; i < ROWS_PER_HAND; ++i) {
         serial_slave_buffer[i] = matrix[offset+i];
     }
+#endif
 }
 
 bool matrix_is_modified(void)

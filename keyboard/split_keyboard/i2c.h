@@ -18,7 +18,7 @@
 // i2c SCL clock frequency
 #define SCL_CLOCK  100000L
 
-extern volatile uint8_t slaveBuffer[SLAVE_BUFFER_SIZE];
+extern volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE];
 
 void i2c_master_init(void);
 uint8_t i2c_master_start(uint8_t address);

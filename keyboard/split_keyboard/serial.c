@@ -21,7 +21,7 @@ uint8_t volatile serial_slave_buffer[SERIAL_SLAVE_BUFFER_LENGTH] = {0};
 uint8_t volatile serial_master_buffer[SERIAL_MASTER_BUFFER_LENGTH] = {0};
 
 #define SLAVE_DATA_CORRUPT (1<<0)
-static volatile uint8_t status = 0;
+volatile uint8_t status = 0;
 
 inline static
 void serial_delay(void) {
