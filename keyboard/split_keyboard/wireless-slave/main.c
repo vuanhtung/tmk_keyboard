@@ -176,6 +176,33 @@ void setup(void) {
   sei();
 }
 
+// get vcc voltage
+uint16_t vcc_ref(void) {
+  // From the data sheet:
+  //   ADC = V_in * 1024 / V_ref
+  // 
+  // Here we mearsue the 1.1 internal V_ref, with AVCC. So:
+  //    V_in  = V_bg
+  //    V_ref = AVCC 
+  // 
+  // So:
+  //   AVCC = V_ref = (1.1 * 1024) / ADC
+  // Or with 8 bit resolution:
+  //   AVCC = V_ref = (1.1 * 256) /  ADC
+  uint8_t adc;
+  power_adc_enable();
+  //ADCSRA = (1 << ADEN) | 0x7;
+  ADCSRA = (1 << ADEN) | 0x7;
+  ADMUX = (0b01 << REFS0) | (1 << ADLAR) | (0b1110 << MUX0);
+  _delay_us(200); // 200us
+  ADCSRA |= (1 << ADSC);
+  while (ADCSRA & (1 << ADSC)); // ~ (25 * CLK / 128) @ 8MHZ => 800us
+  adc = ADCH;
+  ADCSRA = 0;
+  power_adc_disable();
+  return (uint16_t)(1.1 * 256 * 100) / adc;
+}
+
 int main(void) {
   matrix_scan_t scan = {0};
   uint8_t nrf_status = 0;
@@ -234,6 +261,13 @@ int main(void) {
       for (int i = 0; i < ROWS_PER_HAND; ++i) {
         ecb_state.payload[i] = matrix_get_row(i);
       }
+
+
+      uint16_t vcc = vcc_ref();
+      /* ecb_state.payload[ROWS_PER_HAND] = (&vcc)[0]; */
+      /* ecb_state.payload[ROWS_PER_HAND+1] = (&vcc)[1]; */
+      ecb_state.payload[ROWS_PER_HAND] = (&vcc)[0];
+      ecb_state.payload[ROWS_PER_HAND+1] = (&vcc)[1];
 
 #ifndef NO_ENCRYPT
       uint8_t encrypted_data[AES_BUF_LEN];

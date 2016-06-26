@@ -73,21 +73,26 @@ build-right: hex
 
 program-left: build-left
 program-left: program-slave
-program-left: lock
+# program-left: lock
 
 program-right: build-right
 program-right: program-slave
-program-right: lock
+# program-right: lock
 
 uno:
 	avrdude -c arduino -p atmega328p -P $(COM_PORT) \
 		-U flash:w:build-uno/wireless-slave.hex:i
 
+# fuses:
+# 	$(AVRDUDE_CMD) \
+# 		-U lfuse:w:0x42:m \
+# 		-U hfuse:w:0xd9:m \
+# 		-U efuse:w:0x06:m
 fuses:
 	$(AVRDUDE_CMD) \
 		-U lfuse:w:0x42:m \
 		-U hfuse:w:0xd9:m \
-		-U efuse:w:0x06:m
+		-U efuse:w:0xfe:m
 
 lock:
 	# disable reading and writing to flash and eeprom
@@ -96,6 +101,6 @@ lock:
 
 program-slave:
 	$(AVRDUDE_CMD) -U flash:w:$(TARGET).hex:i
-	sleep 1
+	sleep 2
 	$(AVRDUDE_CMD) -U eeprom:w:$(EEPROM_FILE):i
 
