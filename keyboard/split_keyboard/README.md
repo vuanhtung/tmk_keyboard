@@ -30,9 +30,8 @@ will need:
 
 Alternatively, you can use any sort of cable and socket that has at least 3
 wires. If you want to use I2C to communicate between halves, you will need a
-cable with at least 4 wires and 2x 4.7kΩ pull-up resistors:
+cable with at least 4 wires and 2x 4.7kΩ pull-up resistors
 
-![i2c wiring](imgs/split-keyboard-i2c-schematic.png)
 
 Wiring
 ------
@@ -42,6 +41,18 @@ PD0 on the ATmega32u4) between the two Pro Micros.
 
 Then wire your key matrix to any of the remaining 17 IO pins of the pro micro
 and modify the `matrix.c` accordingly.
+
+The wiring for serial:
+
+![serial wiring](imgs/split-keyboard-serial-schematic.png)
+
+The wiring for i2c:
+
+![i2c wiring](imgs/split-keyboard-i2c-schematic.png)
+
+The pull-up resistors may be placed on either half. It is also possible
+to use 4 resistors and have the pull-ups in both halves, but this is
+unnecessary in simple use cases.
 
 Notes on Software Configuration
 -------------------------------
