@@ -263,11 +263,12 @@ int main(void) {
       }
 
 
-      uint16_t vcc = vcc_ref();
+
+      /* uint16_t vcc = vcc_ref(); */
+      /* /1* ecb_state.payload[ROWS_PER_HAND] = (&vcc)[0]; *1/ */
+      /* /1* ecb_state.payload[ROWS_PER_HAND+1] = (&vcc)[1]; *1/ */
       /* ecb_state.payload[ROWS_PER_HAND] = (&vcc)[0]; */
       /* ecb_state.payload[ROWS_PER_HAND+1] = (&vcc)[1]; */
-      ecb_state.payload[ROWS_PER_HAND] = (&vcc)[0];
-      ecb_state.payload[ROWS_PER_HAND+1] = (&vcc)[1];
 
 #ifndef NO_ENCRYPT
       uint8_t encrypted_data[AES_BUF_LEN];
