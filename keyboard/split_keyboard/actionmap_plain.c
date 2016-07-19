@@ -16,12 +16,13 @@ enum function_id {
 };
 
 #define QWERTY 0
-#define INV_COL 1
-#define DVORAK 1
-#define COLEMAK 2
-#define SYMB 3
-#define FUNC 4
-#define MEDIA 5
+#define ARROWS 1
+#define INV_COL 2
+#define DVORAK 2
+#define COLEMAK 3
+#define SYMB 4
+#define FUNC 5
+#define MEDIA 6
 
 #define AC_FN1            ACTION_LAYER_ONESHOT(SYMB)
 #define AC_FN2            ACTION_LAYER_ONESHOT(FUNC)
@@ -30,9 +31,10 @@ enum function_id {
 #define AC_SFT_ENT        ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ENT)
 
 #define AC_FN0            ACTION_FUNCTION(RESET_LAYER_STATE)
-#define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(0)
-#define AC_DVORAK         ACTION_DEFAULT_LAYER_SET(1)
-#define AC_COLEMAK        ACTION_DEFAULT_LAYER_SET(2)
+#define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(QWERTY)
+#define AC_DVORAK         ACTION_DEFAULT_LAYER_SET(DVORAK)
+#define AC_COLEMAK        ACTION_DEFAULT_LAYER_SET(COLEMAK)
+#define AC_ARROWS         ACTION_DEFAULT_LAYER_SET(ARROWS)
 
 #define AC_PROMICRO_PROGRAM  ACTION_FUNCTION_TAP(PROMICRO_PROGRAM)
 #define AC_PROMICRO_RESET    ACTION_FUNCTION_TAP(PROMICRO_RESET)
@@ -52,6 +54,18 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             H    , J    , K    , L    , SCLN , QUOT ,
             N    , M    , COMM , DOT  , SLSH , GRV ,
             BSPC , SSFT , FN1  , LGUI , FN0
+    ),
+    [ARROWS] = ACTIONMAP(
+        /* left hand */
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS  , TRNS  ,
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS  , TRNS  ,
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS  , TRNS  ,
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS  ,
+        /* right hand */
+            TRNS  , TRNS  , UP    , TRNS  , TRNS  , TRNS  ,
+            TRNS  , LEFT  , DOWN  , RIGHT  , TRNS  , TRNS  ,
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS  , TRNS  ,
+            TRNS  , TRNS  , TRNS  , TRNS  , TRNS
     ),
 #ifdef INVERSE_COLEMAK
     /* inverse colemak */
@@ -131,7 +145,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* right hand */
             WH_U , BTN1   , MS_U   , BTN2    , NO   , PROMICRO_PROGRAM  ,
             WH_D , MS_L   , MS_D   , MS_R    , BTN3 , PROMICRO_RESET  ,
-            NO   , QWERTY , DVORAK , COLEMAK , NO   , FN0 ,
+            ARROWS   , QWERTY , DVORAK , COLEMAK , NO   , FN0 ,
             TRNS , TRNS   , TRNS   , TRNS    , TRNS
     ),
 };

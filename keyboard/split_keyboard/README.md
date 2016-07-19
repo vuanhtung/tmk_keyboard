@@ -81,4 +81,10 @@ layout and the right half with a Colemak layout. Then if you connect the left
 half to a computer by USB the keyboard will use QWERTY and Colemak when the
 right half is connected.
 
+Debugging
+---------
 
+Here's some tips for debugging:
+
+* The LED on the pro micro next to pin 14 will light up when there is no connection
+between the halves.
