@@ -6,6 +6,7 @@
 #include "print.h"
 #include "pro-micro.h"
 #include "timer.h"
+#include "led.h"
 #include "wireless/crypto.h"
 #include "wireless/nrf.h"
 #include "wireless/nrf_debug.h"
@@ -28,6 +29,11 @@ static aes_ctx_t aes_ctx = { 0 };
 /* static aes_state_t aes_state[2] = { 0 }; */
 static ecb_state_t ecb_state[2] = { 0 };
 static device_settings_t settings;
+
+
+void led_set(uint8_t usb_led)
+{
+}
 
 inline
 uint8_t matrix_rows(void)

@@ -167,7 +167,12 @@ static void select_row(uint8_t row)
   DDRD  |= (1<<row);
   PORTD &= ~(1<<row);
 #elif DEVICE_ID==1
+#ifdef HANDWIRED_ROW_SWAP
   DDRD  |= (1<<(3-row));
   PORTD &= ~(1<<(3-row));
+#else
+  DDRD  |= (1<<row);
+  PORTD &= ~(1<<row);
+#endif
 #endif
 }

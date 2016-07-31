@@ -1,5 +1,13 @@
-#ifndef ACTIONMAP_COMMON_H
-#define ACTIONMAP_COMMON_H
+#ifndef ACTIONMAP_48_ORTHO_H
+#define ACTIONMAP_48_ORTHO_H
+
+#define AC_____ AC_TRNS
+#define AC_PIPE AC_s(BSLS)
+#define AC_PLUS AC_s(EQL)
+#define AC_LCBR AC_s(LBRC)
+#define AC_RCBR AC_s(RBRC)
+#define AC_TILD AC_s(GRV)
+#define AC_UNDS AC_s(MINS)
 
 #define ACTIONMAP( \
     K00, K01, K02, K03, K04, K05, \

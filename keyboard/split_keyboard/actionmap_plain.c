@@ -1,4 +1,9 @@
 #include <avr/pgmspace.h>
+#include <avr/eeprom.h>
+#include "host.h"
+#include "eeconfig.h"
+#include "action_layer.h"
+#include "keymap.h"
 #include "actionmap.h"
 #include "actionmap_common.h"
 #include "action_util.h"
@@ -13,6 +18,10 @@ enum function_id {
     RESET_LAYER_STATE,
     PROMICRO_RESET,
     PROMICRO_PROGRAM,
+    SET_QWERTY,
+    SET_DVORAK,
+    SET_COLEMAK,
+    TOGGLE_NKRO,
 };
 
 #define QWERTY 0
@@ -23,6 +32,9 @@ enum function_id {
 #define SYMB 4
 #define FUNC 5
 #define MEDIA 6
+
+// If defined
+#define INVERSE_COLEMAK
 
 #define AC_FN1            ACTION_LAYER_ONESHOT(SYMB)
 #define AC_FN2            ACTION_LAYER_ONESHOT(FUNC)
@@ -38,8 +50,12 @@ enum function_id {
 
 #define AC_PROMICRO_PROGRAM  ACTION_FUNCTION_TAP(PROMICRO_PROGRAM)
 #define AC_PROMICRO_RESET    ACTION_FUNCTION_TAP(PROMICRO_RESET)
+#define AC_SET_QWERTY        ACTION_FUNCTION_TAP(SET_QWERTY)
+#define AC_SET_DVORAK        ACTION_FUNCTION_TAP(SET_DVORAK)
+#define AC_SET_INV_COLEMAK   AC_SET_DVORAK
+#define AC_SET_COLEMAK       ACTION_FUNCTION_TAP(SET_COLEMAK)
+#define AC_TOGGLE_NKRO       ACTION_FUNCTION_TAP(TOGGLE_NKRO)
 
-#define INVERSE_COLEMAK
 
 const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
@@ -145,7 +161,8 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* right hand */
             WH_U , BTN1   , MS_U   , BTN2    , NO   , PROMICRO_PROGRAM  ,
             WH_D , MS_L   , MS_D   , MS_R    , BTN3 , PROMICRO_RESET  ,
-            ARROWS   , QWERTY , DVORAK , COLEMAK , NO   , FN0 ,
+            /* ARROWS   , QWERTY , DVORAK , COLEMAK , NO   , FN0 , */
+            ARROWS   , SET_QWERTY , SET_DVORAK , SET_COLEMAK , TOGGLE_NKRO , FN0 ,
             TRNS , TRNS   , TRNS   , TRNS    , TRNS
     ),
 };
@@ -165,91 +182,13 @@ void promicro_bootloader_jmp(bool program) {
     while(1) {} // wait for watchdog timer to trigger
 }
 
-#define KPRINT_DELAY 1
-void kput_char(char c) {
-    uint8_t code = 0;
-    uint8_t mods = 0;
-    if ('a' <= c && c <= 'z') {
-        code = (c - 'a') + KC_A;
-    } else if ('A' <= c && c <= 'Z') {
-        code = (c - 'A') + KC_A;
-        mods = MOD_BIT(KC_LSHIFT);
-    } else if ('0' <= c && c <= '9') {
-        code = (c == '0') ? KC_0 : (c - '1') + KC_1;
-    } else {
-        switch (c) {
-            case ' ': code = KC_SPACE; break;
-            case '\n': code = KC_ENTER; break;
-            case '\t': code = KC_TAB; break;
-            case ';': code = KC_SCOLON; break;
-            case ',': code = KC_COMMA; break;
-            case '.': code = KC_DOT; break;
-            case '/': code = KC_SLASH; break;
-            case '\\': code = KC_BSLASH; break;
-            case '[': code = KC_LBRACKET; break;
-            case ']': code = KC_RBRACKET; break;
-            case '-': code = KC_MINUS; break;
-            case '=': code = KC_EQUAL; break;
-            case '`': code = KC_GRAVE; break;
-            case '\'': code = KC_QUOTE; break;
-        }
-        if (!code) {
-            switch (c) {
-                case ':': code = KC_SCOLON; break;
-                case '<': code = KC_COMMA; break;
-                case '>': code = KC_DOT; break;
-                case '?': code = KC_SLASH; break;
-                case '|': code = KC_BSLASH; break;
-                case '{': code = KC_LBRACKET; break;
-                case '}': code = KC_RBRACKET; break;
-                case '_': code = KC_MINUS; break;
-                case '+': code = KC_EQUAL; break;
-                case '~': code = KC_GRAVE; break;
-                case '"': code = KC_QUOTE; break;
-
-                case '!': code = KC_1; break;
-                case '@': code = KC_2; break;
-                case '#': code = KC_3; break;
-                case '$': code = KC_4; break;
-                case '%': code = KC_5; break;
-                case '^': code = KC_6; break;
-                case '&': code = KC_7; break;
-                case '*': code = KC_8; break;
-                case '(': code = KC_9; break;
-                case ')': code = KC_0; break;
-            }
-            mods = code ? MOD_BIT(KC_LSHIFT) : 0;
-        }
-    }
-    if (!code) {
-        code = KC_SLASH;
-        mods = MOD_BIT(KC_LSHIFT);
-    }
-
-    // key down
-    add_weak_mods(mods);
-    register_code(code);
-
-    wait_ms(KPRINT_DELAY);
-
-    // key up
-    del_weak_mods(mods);
-    unregister_code(code);
-    /* send_keyboard_report(); */
-}
-
-void kprint(char *s) {
-    while(*s) {
-        kput_char(*s);
-        s++;
-    }
-}
 
 /*
  * user defined action function
  */
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
+    keymap_config_t keymap_config;
     uint8_t tap_count = record->tap.count;
     switch (id) {
         case RESET_LAYER_STATE:
@@ -276,6 +215,26 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         case PROMICRO_PROGRAM:
             if(tap_count == 5) {
                 promicro_bootloader_jmp(true);
+            }
+            break;
+        case SET_QWERTY:
+            default_layer_state = (1<<QWERTY);
+            eeprom_update_byte(EECONFIG_DEFAULT_LAYER, (uint8_t)default_layer_state);
+            break;
+        case SET_DVORAK:
+            default_layer_state = (1<<DVORAK);
+            eeprom_update_byte(EECONFIG_DEFAULT_LAYER, (uint8_t)default_layer_state);
+            break;
+        case SET_COLEMAK:
+            default_layer_state = (1<<COLEMAK);
+            eeprom_update_byte(EECONFIG_DEFAULT_LAYER, (uint8_t)default_layer_state);
+            break;
+        case TOGGLE_NKRO:
+            if (record->event.pressed) {
+                keymap_config.raw = eeprom_read_byte(EECONFIG_KEYMAP);
+                keymap_config.nkro = !keymap_config.nkro;
+                eeprom_update_byte(EECONFIG_KEYMAP, keymap_config.raw);
+                keyboard_nkro = keymap_config.nkro;
             }
             break;
         default:

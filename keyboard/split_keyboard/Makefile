@@ -27,7 +27,7 @@
 # make flip-ee = Download the eeprom file to the device, using Atmel FLIP
 #                (must have Atmel FLIP installed).
 #
-# make debug = Start either simulavr or avarice as specified for debugging, 
+# make debug = Start either simulavr or avarice as specified for debugging,
 #              with avr-gdb or avr-insight as the front end for debugging.
 #
 # make filename.s = Just compile filename.c into the assembler code only.
@@ -49,7 +49,6 @@ TARGET_DIR = .
 
 # project specific files
 SRC =	\
-	led.c \
 	matrix.c \
 	wired/i2c.c \
 	wired/serial.c \
@@ -146,24 +145,11 @@ NKRO_ENABLE = yes	# USB Nkey Rollover
 ACTIONMAP_ENABLE = yes	# Use 16bit action codes in keymap instead of 8bit keycodes
 
 
-ifdef ACTIONMAP_ENABLE
-    KEYMAP_FILE = actionmap
-else
-    KEYMAP_FILE = keymap
-    SRC := keymap_common.c $(SRC)
-endif
 ifdef KEYMAP
-    SRC := $(KEYMAP_FILE)_$(KEYMAP).c $(SRC)
+    SRC += actionmap_$(KEYMAP).c
 else
-    SRC := $(KEYMAP_FILE)_plain.c $(SRC)
+    SRC += actionmap_48_ortho.c
 endif
-
-
-#PS2_MOUSE_ENABLE = yes  # PS/2 mouse(TrackPoint) support
-#PS2_USE_BUSYWAIT = yes # uses primitive reference code
-#PS2_USE_INT = yes      # uses external interrupt for falling edge of PS/2 clock pin
-#PS2_USE_USART = yes     # uses hardware USART engine for PS/2 signal receive(recomened)
-
 
 # Search Path
 VPATH += $(TARGET_DIR)
@@ -175,6 +161,9 @@ VPATH += $(TMK_DIR)
 include $(TMK_DIR)/protocol/lufa.mk
 include $(TMK_DIR)/common.mk
 include $(TMK_DIR)/rules.mk
+
+verbose-output: EXTRAFLAGS += -DDEBUG_VERBOSE
+verbose-output: all
 
 debug-on: EXTRAFLAGS += -DDEBUG -DDEBUG_ACTION
 debug-on: all

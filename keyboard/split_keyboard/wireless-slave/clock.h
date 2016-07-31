@@ -10,8 +10,8 @@
   #define FAST_SPEED_DIV clock_div_8
   #define SLOW_SPEED_DIV clock_div_256
 #elif F_OSC==8000000
-  #define FAST_SPEED_DIV clock_div_8
-  #define SLOW_SPEED_DIV clock_div_128
+  #define FAST_SPEED_DIV clock_div_2
+  #define SLOW_SPEED_DIV clock_div_256
 #endif
 
 #define clock_delay_slow_us(X) _delay_us(X / (1 << (SLOW_SPEED_DIV-FAST_SPEED_DIV)))

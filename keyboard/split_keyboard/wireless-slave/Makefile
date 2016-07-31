@@ -29,16 +29,18 @@ ifndef COM_PORT
     COM_PORT=/dev/ttyACM0
 endif
 
-# # ArduinoISP/AVR ISP programmer
+# ArduinoISP/AVR ISP programmer
 # AVRDUDE_CMD=avrdude -p $(MCU) -c avrisp -b 19200 -P $(COM_PORT)
+# AVRDUDE_CMD_SLOW=avrdude -p $(MCU) -c avrisp -b 19200 -P $(COM_PORT)
 
 # USBasp programmer
-AVRDUDE_CMD=avrdude -p $(MCU) -c usbasp -B 5
+AVRDUDE_CMD=avrdude -p $(MCU) -c usbasp -B 10
+AVRDUDE_CMD_SLOW=avrdude -p $(MCU) -c usbasp -B 10
 
 # Oscillator frequency.
 F_OSC = 8000000
 # Processor frequency.
-F_CPU = 2000000
+F_CPU = 4000000
 
 # Optimisation level
 OPT = 3
@@ -46,6 +48,7 @@ OPT = 3
 EXTRA_FLAGS =
 OPT_DEFS += -DUSE_AUTO_ACK=1 $(EXTRA_FLAGS)
 OPT_DEFS += -DF_OSC=$(F_OSC)UL
+# OPT_DEFS += -DHANDWIRED_ROW_SWAP
 
 EEPROM_FILE = ../eeprom-split.eep
 
@@ -101,6 +104,9 @@ lock:
 
 program-slave:
 	$(AVRDUDE_CMD) -U flash:w:$(TARGET).hex:i
-	sleep 3
-	$(AVRDUDE_CMD) -U eeprom:w:$(EEPROM_FILE):i
+	$(AVRDUDE_CMD_SLOW) -U eeprom:w:$(EEPROM_FILE):i
 
+eeprom:
+	$(AVRDUDE_CMD_SLOW) -U eeprom:w:$(EEPROM_FILE):i
+
+.PHONY: eeprom program-slave lock fuses
