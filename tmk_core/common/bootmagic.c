@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
-#include <util/delay.h>
+#include "wait.h"
 #include "matrix.h"
 #include "bootloader.h"
 #include "debug.h"
@@ -10,7 +10,9 @@
 #include "action_layer.h"
 #include "eeconfig.h"
 #include "bootmagic.h"
+#include "hook.h"
 
+keymap_config_t keymap_config;
 
 void bootmagic(void)
 {
@@ -20,9 +22,9 @@ void bootmagic(void)
     }
 
     /* do scans in case of bounce */
-    print("boogmagic scan: ... ");
+    print("bootmagic scan: ... ");
     uint8_t scan = 100;
-    while (scan--) { matrix_scan(); _delay_ms(10); }
+    while (scan--) { matrix_scan(); wait_ms(10); }
     print("done.\n");
 
     /* bootmagic skip */
@@ -39,6 +41,9 @@ void bootmagic(void)
     if (bootmagic_scan_key(BOOTMAGIC_KEY_BOOTLOADER)) {
         bootloader_jump();
     }
+
+    /* user-defined checks */
+    hook_bootmagic();
 
     /* debug enable */
     debug_config.raw = eeconfig_read_debug();
