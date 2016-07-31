@@ -102,7 +102,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define ONESHOT_TIMEOUT 3000 // default undefined */
 /* #define ONESHOT_TAP_TOGGLE 2 */
 
-#define ONESHOT_TAP_TOGGLE 2
+#define ONESHOT_TAP_TOGGLE 3
 #define ONESHOT_TIMEOUT 5000
 
 #endif

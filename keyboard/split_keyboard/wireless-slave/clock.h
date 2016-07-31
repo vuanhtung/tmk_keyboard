@@ -10,7 +10,7 @@
   #define FAST_SPEED_DIV clock_div_8
   #define SLOW_SPEED_DIV clock_div_256
 #elif F_OSC==8000000
-  #define FAST_SPEED_DIV clock_div_4
+  #define FAST_SPEED_DIV clock_div_8
   #define SLOW_SPEED_DIV clock_div_128
 #endif
 

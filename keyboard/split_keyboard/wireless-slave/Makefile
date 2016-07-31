@@ -28,8 +28,12 @@ MCU = atmega328p
 ifndef COM_PORT
     COM_PORT=/dev/ttyACM0
 endif
-AVRDUDE_CMD=avrdude -p $(MCU) -c avrisp -b 19200 -P $(COM_PORT)
-# PROGRAM_CMD=$(AVRDUDE_CMD)
+
+# # ArduinoISP/AVR ISP programmer
+# AVRDUDE_CMD=avrdude -p $(MCU) -c avrisp -b 19200 -P $(COM_PORT)
+
+# USBasp programmer
+AVRDUDE_CMD=avrdude -p $(MCU) -c usbasp -B 5
 
 # Oscillator frequency.
 F_OSC = 8000000
@@ -79,10 +83,6 @@ program-right: build-right
 program-right: program-slave
 # program-right: lock
 
-uno:
-	avrdude -c arduino -p atmega328p -P $(COM_PORT) \
-		-U flash:w:build-uno/wireless-slave.hex:i
-
 # fuses:
 # 	$(AVRDUDE_CMD) \
 # 		-U lfuse:w:0x42:m \
@@ -101,6 +101,6 @@ lock:
 
 program-slave:
 	$(AVRDUDE_CMD) -U flash:w:$(TARGET).hex:i
-	sleep 2
+	sleep 3
 	$(AVRDUDE_CMD) -U eeprom:w:$(EEPROM_FILE):i
 
