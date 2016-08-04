@@ -1,6 +1,8 @@
-Custom split keyboard firmware
+Wireless split keyboard firmware
 ======
 
+(Note: this firmware works but is currently vulnerable to replay attacks.
+It is provided as is and I don't guarantee it will receive further updates.)
 
 Notes on Software Configuration
 -------------------------------
