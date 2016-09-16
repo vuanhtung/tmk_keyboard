@@ -41,7 +41,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ERROR_DISCONNECT_COUNT 5
 
 static uint8_t debouncing = DEBOUNCE;
-static const int ROWS_PER_HAND = MATRIX_ROWS/2;
 static uint8_t error_count = 0;
 
 /* matrix state(1:on, 0:off) */
@@ -242,20 +241,22 @@ uint8_t matrix_key_count(void)
     return count;
 }
 
-/* Column pin configuration
- * col: 0
- * pin: B2
 
+/* Column pin configuration
  * col: 0   1   2   3   4   5
  * pin: F6  F7  B1  B3  B2  B6
  */
 static void  init_cols(void)
 {
+    const uint8_t MASK_COL_B = (1<<1 | 1<<3 | 1<<2 | 1<<6);
+    const uint8_t MASK_COL_F = (1<<6 | 1<<7);
+
     // Input with pull-up(DDR:0, PORT:1)
-    DDRB  &= ~(1<<1 | 1<<3 | 1<<2 | 1<<6);
-    PORTB |=  (1<<1 | 1<<3 | 1<<2 | 1<<6);
-    DDRF  &= ~(1<<6 | 1<<7);
-    PORTF |=  (1<<6 | 1<<7);
+    DDRB  &= ~MASK_COL_B;
+    PORTB |=  MASK_COL_B;
+
+    DDRF  &= ~MASK_COL_F;
+    PORTF |=  MASK_COL_F;
 }
 
 static matrix_row_t read_cols(void)
@@ -269,23 +270,24 @@ static matrix_row_t read_cols(void)
 }
 
 /* Row pin configuration
- * row: 0
- * pin: B1
- *
  * row: 0  1  2  4
- * pin: D7 E6 B4 B6
+ * pin: D7 E6 B4 B5
  */
 static void unselect_rows(void)
 {
     // Hi-Z(DDR:0, PORT:0) to unselect
-    DDRB  &= ~0b00110000;
-    PORTB &= ~0b00110000;
+    const uint8_t MASK_ROW_B = (1<<4) | (1<<5);
+    const uint8_t MASK_ROW_D = (1<<7);
+    const uint8_t MASK_ROW_E = (1<<6);
 
-    DDRD  &= ~0b10000000;
-    PORTD &= ~0b10000000;
+    DDRB  &= ~MASK_ROW_B;
+    PORTB &= ~MASK_ROW_B;
 
-    DDRE  &= ~0b01000000;
-    PORTE &= ~0b01000000;
+    DDRD  &= ~MASK_ROW_D;
+    PORTD &= ~MASK_ROW_D;
+
+    DDRE  &= ~MASK_ROW_E;
+    PORTE &= ~MASK_ROW_E;
 }
 
 static void select_row(uint8_t row)
