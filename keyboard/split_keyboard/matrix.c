@@ -34,6 +34,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pro-micro.h"
 #include "config.h"
 
+#include "pin_defs.h"
+
 #ifndef DEBOUNCE
 #   define DEBOUNCE	5
 #endif
@@ -46,6 +48,9 @@ static uint8_t error_count = 0;
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
+
+static const uint8_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
+static const uint8_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
 static matrix_row_t read_cols(void);
 static void init_cols(void);
@@ -242,73 +247,33 @@ uint8_t matrix_key_count(void)
 }
 
 
-/* Column pin configuration
- * col: 0   1   2   3   4   5
- * pin: F6  F7  B1  B3  B2  B6
- */
 static void  init_cols(void)
 {
-    const uint8_t MASK_COL_B = (1<<1 | 1<<3 | 1<<2 | 1<<6);
-    const uint8_t MASK_COL_F = (1<<6 | 1<<7);
-
-    // Input with pull-up(DDR:0, PORT:1)
-    DDRB  &= ~MASK_COL_B;
-    PORTB |=  MASK_COL_B;
-
-    DDRF  &= ~MASK_COL_F;
-    PORTF |=  MASK_COL_F;
+    for(int x = 0; x < MATRIX_COLS; x++) {
+        _SFR_IO8((col_pins[x] >> 4) + 1) &=  ~_BV(col_pins[x] & 0xF);
+        _SFR_IO8((col_pins[x] >> 4) + 2) |= _BV(col_pins[x] & 0xF);
+    }
 }
 
 static matrix_row_t read_cols(void)
 {
-    return (PINF&(1<<6) ? 0 : (1<<0)) |
-           (PINF&(1<<7) ? 0 : (1<<1)) |
-           (PINB&(1<<1) ? 0 : (1<<2)) |
-           (PINB&(1<<3) ? 0 : (1<<3)) |
-           (PINB&(1<<2) ? 0 : (1<<4)) |
-           (PINB&(1<<6) ? 0 : (1<<5));
+    matrix_row_t result = 0;
+    for(int x = 0; x < MATRIX_COLS; x++) {
+        result |= (_SFR_IO8(col_pins[x] >> 4) & _BV(col_pins[x] & 0xF)) ? 0 : (1 << x);
+    }
+    return result;
 }
 
-/* Row pin configuration
- * row: 0  1  2  4
- * pin: D7 E6 B4 B5
- */
 static void unselect_rows(void)
 {
-    // Hi-Z(DDR:0, PORT:0) to unselect
-    const uint8_t MASK_ROW_B = (1<<4) | (1<<5);
-    const uint8_t MASK_ROW_D = (1<<7);
-    const uint8_t MASK_ROW_E = (1<<6);
-
-    DDRB  &= ~MASK_ROW_B;
-    PORTB &= ~MASK_ROW_B;
-
-    DDRD  &= ~MASK_ROW_D;
-    PORTD &= ~MASK_ROW_D;
-
-    DDRE  &= ~MASK_ROW_E;
-    PORTE &= ~MASK_ROW_E;
+    for(int x = 0; x < ROWS_PER_HAND; x++) {
+        _SFR_IO8((row_pins[x] >> 4) + 1) &=  ~_BV(row_pins[x] & 0xF);
+        _SFR_IO8((row_pins[x] >> 4) + 2) |= _BV(row_pins[x] & 0xF);
+    }
 }
 
 static void select_row(uint8_t row)
 {
-    // Output low(DDR:1, PORT:0) to select
-    switch (row) {
-        case 0:
-            DDRD  |= (1<<7);
-            PORTD &= ~(1<<7);
-            break;
-        case 1:
-            DDRE  |= (1<<6);
-            PORTE &= ~(1<<6);
-            break;
-        case 2:
-            DDRB  |= (1<<4);
-            PORTB &= ~(1<<4);
-            break;
-        case 3:
-            DDRB  |= (1<<5);
-            PORTB &= ~(1<<5);
-            break;
-    }
+    _SFR_IO8((row_pins[row] >> 4) + 1) |=  _BV(row_pins[row] & 0xF);
+    _SFR_IO8((row_pins[row] >> 4) + 2) &= ~_BV(row_pins[row] & 0xF);
 }
