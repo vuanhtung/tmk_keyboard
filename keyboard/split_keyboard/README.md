@@ -37,10 +37,10 @@ Wiring
 ------
 
 The 3 wires of the TRS cable need to connect GND, VCC, and digital pin 3 (i.e.
-PD0 on the ATmega32u4) between the two Pro Micros.
+`PD0` on the ATmega32u4) between the two Pro Micros.
 
 Then wire your key matrix to any of the remaining 17 IO pins of the pro micro
-and modify the `matrix.c` accordingly.
+and modify the `MATRIX_COL_PINS` and `MATRIX_ROW_PINS` in `config.h` accordingly.
 
 The wiring for serial:
 
