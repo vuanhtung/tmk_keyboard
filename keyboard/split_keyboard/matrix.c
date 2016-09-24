@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "print.h"
 #include "debug.h"
 #include "util.h"
+#include "timer.h"
 #include "matrix.h"
 #include "i2c.h"
 #include "serial.h"
@@ -41,6 +42,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define ERROR_DISCONNECT_COUNT 5
+
+#define I2C_MATRIX_ADDR 0x00
+#define I2C_LED_ADDR ROWS_PER_HAND
 
 static uint8_t debouncing = DEBOUNCE;
 static uint8_t error_count = 0;
@@ -118,33 +122,31 @@ uint8_t _matrix_scan(void)
 
 // Get rows from other half over i2c
 int i2c_transaction(void) {
+    bool err;
     int slaveOffset = (isLeftHand) ? (ROWS_PER_HAND) : 0;
 
-    int err = i2c_master_start(SLAVE_I2C_ADDRESS + I2C_WRITE);
-    if (err) goto i2c_error;
+    err = i2c_read_bytes(
+            SLAVE_I2C_ADDRESS, // i2c address of other half
+            I2C_MATRIX_ADDR, // read the slaves matrix data
+            matrix+slaveOffset, // store in correct position in master's matrix
+            ROWS_PER_HAND // number of bytes to read
+        );
 
-    // start of matrix stored at 0x00
-    err = i2c_master_write(0x00);
-    if (err) goto i2c_error;
+    if (err) i2c_reset_state();
 
-    // Start read
-    err = i2c_master_start(SLAVE_I2C_ADDRESS + I2C_READ);
-    if (err) goto i2c_error;
+    // test_data toggles second
+    uint8_t test_data = (timer_read() / 1000) % 2;
 
-    if (!err) {
-        int i;
-        for (i = 0; i < ROWS_PER_HAND-1; ++i) {
-            matrix[slaveOffset+i] = i2c_master_read(I2C_ACK);
-        }
-        matrix[slaveOffset+i] = i2c_master_read(I2C_NACK);
-        i2c_master_stop();
-    } else {
-i2c_error: // the cable is disconnceted, or something else went wrong
-        i2c_reset_state();
-        return err;
-    }
+    err |= i2c_write_bytes(
+            SLAVE_I2C_ADDRESS, // i2c address of other half
+            I2C_LED_ADDR, // address for led control
+            &test_data, // data to send
+            sizeof(test_data) // size of test data
+        );
 
-    return 0;
+    if (err) i2c_reset_state();
+
+    return err;
 }
 
 int serial_transaction(void) {
@@ -199,7 +201,6 @@ void matrix_slave_scan(void) {
 
 #ifdef USE_I2C
     for (int i = 0; i < ROWS_PER_HAND; ++i) {
-        /* i2c_slave_buffer[i] = matrix[offset+i]; */
         i2c_slave_buffer[i] = matrix[offset+i];
     }
 #else
@@ -207,6 +208,13 @@ void matrix_slave_scan(void) {
         serial_slave_buffer[i] = matrix[offset+i];
     }
 #endif
+
+    // control the pro micro RX LED
+    if (serial_slave_buffer[I2C_LED_ADDR]) {
+        RXLED1;
+    } else {
+        RXLED1;
+    }
 }
 
 bool matrix_is_modified(void)
