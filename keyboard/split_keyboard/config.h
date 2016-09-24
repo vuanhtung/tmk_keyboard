@@ -40,6 +40,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* use i2c instead of serial */
 #define USE_I2C
 
+#define I2C_WRITE_TEST_CODE
+
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 

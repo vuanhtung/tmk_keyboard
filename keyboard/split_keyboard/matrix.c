@@ -122,29 +122,27 @@ uint8_t _matrix_scan(void)
 
 // Get rows from other half over i2c
 int i2c_transaction(void) {
-    bool err;
+    bool err = false;
     int slaveOffset = (isLeftHand) ? (ROWS_PER_HAND) : 0;
 
-    err = i2c_read_bytes(
+    err = i2c_master_read(
             SLAVE_I2C_ADDRESS, // i2c address of other half
             I2C_MATRIX_ADDR, // read the slaves matrix data
             matrix+slaveOffset, // store in correct position in master's matrix
             ROWS_PER_HAND // number of bytes to read
         );
 
-    if (err) i2c_reset_state();
-
+#ifdef I2C_WRITE_TEST_CODE
     // test_data toggles second
     uint8_t test_data = (timer_read() / 1000) % 2;
 
-    err |= i2c_write_bytes(
+    err |= i2c_master_write(
             SLAVE_I2C_ADDRESS, // i2c address of other half
             I2C_LED_ADDR, // address for led control
             &test_data, // data to send
             sizeof(test_data) // size of test data
         );
-
-    if (err) i2c_reset_state();
+#endif
 
     return err;
 }
@@ -201,20 +199,25 @@ void matrix_slave_scan(void) {
 
 #ifdef USE_I2C
     for (int i = 0; i < ROWS_PER_HAND; ++i) {
-        i2c_slave_buffer[i] = matrix[offset+i];
+        i2c_slave_write(I2C_MATRIX_ADDR+i, matrix[offset+i]);
     }
+
+#ifdef I2C_WRITE_TEST_CODE
+    // control the pro micro RX LED
+    uint8_t led_state = i2c_slave_read(I2C_LED_ADDR);
+    if (led_state == 1) {
+        RXLED1;
+    } else if(led_state == 0) {
+        RXLED0;
+    }
+#endif
+
 #else
     for (int i = 0; i < ROWS_PER_HAND; ++i) {
         serial_slave_buffer[i] = matrix[offset+i];
     }
 #endif
 
-    // control the pro micro RX LED
-    if (serial_slave_buffer[I2C_LED_ADDR]) {
-        RXLED1;
-    } else {
-        RXLED1;
-    }
 }
 
 bool matrix_is_modified(void)

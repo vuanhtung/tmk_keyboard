@@ -18,17 +18,14 @@
 // i2c SCL clock frequency
 #define SCL_CLOCK  100000L
 
-extern volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE];
 
 void i2c_master_init(void);
-uint8_t i2c_master_start(uint8_t address);
-void i2c_master_stop(void);
-uint8_t i2c_master_write(uint8_t data);
-uint8_t i2c_master_read(int);
-void i2c_reset_state(void);
 void i2c_slave_init(uint8_t address);
 
-bool i2c_read_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_t len);
-bool i2c_write_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *data, uint8_t len);
+bool i2c_master_write(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_t len);
+bool i2c_master_read(uint8_t i2c_device_addr, uint8_t addr, uint8_t *data, uint8_t len);
+
+void i2c_slave_write(uint8_t addr, uint8_t data);
+uint8_t i2c_slave_read(uint8_t addr);
 
 #endif

@@ -10,16 +10,21 @@
 // Since were running SCL line 100kHz (=> 10μs/bit), and each transactions is
 // 9 bits, a single transaction will take around 90μs to complete.
 //
-// (F_CPU/SCL_CLOCK)  =>  # of μC cycles to transfer a bit
+// (F_CPU/SCL_CLOCK)  =>  # of mcu cycles to transfer a bit
 // poll loop takes at least 8 clock cycles to execute
 #define I2C_LOOP_TIMEOUT (9+1)*(F_CPU/SCL_CLOCK)/8
 
 #define BUFFER_POS_INC() (slave_buffer_pos = (slave_buffer_pos+1)%SLAVE_BUFFER_SIZE)
 
-volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE] = {0};
+static volatile uint8_t i2c_slave_buffer[SLAVE_BUFFER_SIZE] = {0};
 
 static volatile uint8_t slave_buffer_pos;
 static volatile bool slave_has_register_set = false;
+
+static uint8_t i2c_start(uint8_t address);
+static void i2c_stop(void);
+static uint8_t i2c_write(uint8_t data);
+static uint8_t i2c_read(uint8_t ack);
 
 // Wait for an i2c operation to finish
 inline static
@@ -36,22 +41,25 @@ void i2c_delay(void) {
 // addr: the memory address to read from the i2c device
 // dest: pointer to where read data is saved
 // len: the number of bytes to read
-bool i2c_read_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_t len) {
+//
+// NOTE: on error, the data in dest may have been modified
+bool i2c_master_read(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_t len) {
   bool err;
   if (len == 0) return 0;
 
-  err = i2c_master_start(i2c_device_addr + I2C_WRITE);
+  err = i2c_start(i2c_device_addr + I2C_WRITE);
   if (err) return err;
-  err = i2c_master_write(addr);
+  err = i2c_write(addr);
+  if (err) return err;
 
-  err = i2c_master_start(i2c_device_addr + I2C_READ);
+  err = i2c_start(i2c_device_addr + I2C_READ);
   if (err) return err;
 
   for (uint8_t i = 0; i < len-1; ++i) {
-    dest[i] = i2c_master_read(I2C_ACK);
+    dest[i] = i2c_read(I2C_ACK);
   }
-  dest[len-1] = i2c_master_read(I2C_NACK);
-  i2c_master_stop();
+  dest[len-1] = i2c_read(I2C_NACK);
+  i2c_stop();
 
   return 0;
 }
@@ -60,22 +68,30 @@ bool i2c_read_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_
 // addr: the memory address at which to write in the i2c device
 // data: the data to be written
 // len: the number of bytes to write
-bool i2c_write_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *data, uint8_t len) {
+bool i2c_master_write(uint8_t i2c_device_addr, uint8_t addr, uint8_t *data, uint8_t len) {
   bool err;
 
   if (len == 0) return 0;
 
-  err = i2c_master_start(i2c_device_addr + I2C_WRITE);
+  err = i2c_start(i2c_device_addr + I2C_WRITE);
   if (err) return err;
-  err = i2c_master_write(addr);
+  err = i2c_write(addr);
   if (err) return err;
 
   for (uint8_t i = 0; i < len; ++i) {
-    err = i2c_master_write(data[i]);
+    err = i2c_write(data[i]);
     if (err) return err;
   }
-  i2c_master_stop();
+  i2c_stop();
   return 0;
+}
+
+void i2c_slave_write(uint8_t addr, uint8_t data) {
+  i2c_slave_buffer[addr] = data;
+}
+
+uint8_t i2c_slave_read(uint8_t addr) {
+  return i2c_slave_buffer[addr];
 }
 
 // Setup twi to run at 100kHz
@@ -91,7 +107,7 @@ void i2c_master_init(void) {
 // transfer is set with I2C_READ and I2C_WRITE.
 // returns: 0 => success
 //          1 => error
-uint8_t i2c_master_start(uint8_t address) {
+uint8_t i2c_start(uint8_t address) {
   TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTA);
 
   i2c_delay();
@@ -113,7 +129,7 @@ uint8_t i2c_master_start(uint8_t address) {
 
 
 // Finish the i2c transaction.
-void i2c_master_stop(void) {
+void i2c_stop(void) {
   TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);
 
   uint16_t lim = 0;
@@ -124,7 +140,7 @@ void i2c_master_stop(void) {
 // Write one byte to the i2c slave.
 // returns 0 => slave ACK
 //         1 => slave NACK
-uint8_t i2c_master_write(uint8_t data) {
+uint8_t i2c_write(uint8_t data) {
   TWDR = data;
   TWCR = (1<<TWINT) | (1<<TWEN);
 
@@ -137,15 +153,11 @@ uint8_t i2c_master_write(uint8_t data) {
 // Read one byte from the i2c slave. If ack=1 the slave is acknowledged,
 // if ack=0 the acknowledge bit is not set.
 // returns: byte read from i2c device
-uint8_t i2c_master_read(int ack) {
+uint8_t i2c_read(uint8_t ack) {
   TWCR = (1<<TWINT) | (1<<TWEN) | (ack<<TWEA);
 
   i2c_delay();
   return TWDR;
-}
-
-void i2c_reset_state(void) {
-  TWCR = 0;
 }
 
 void i2c_slave_init(uint8_t address) {
