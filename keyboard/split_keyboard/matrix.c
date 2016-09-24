@@ -42,6 +42,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ERROR_DISCONNECT_COUNT 5
 
+#define I2C_MATRIX_ADDR 0x00
+#define I2C_LED_ADDR ROWS_PER_HAND
+
 static uint8_t debouncing = DEBOUNCE;
 static uint8_t error_count = 0;
 
@@ -118,33 +121,18 @@ uint8_t _matrix_scan(void)
 
 // Get rows from other half over i2c
 int i2c_transaction(void) {
+    bool err;
     int slaveOffset = (isLeftHand) ? (ROWS_PER_HAND) : 0;
 
-    int err = i2c_master_start(SLAVE_I2C_ADDRESS + I2C_WRITE);
-    if (err) goto i2c_error;
+    err = i2c_read_bytes(
+            SLAVE_I2C_ADDRESS, // talk to the only slave
+            I2C_MATRIX_ADDR, // read the slaves matrix data
+            matrix+slaveOffset, // copy to master's matrix
+            ROWS_PER_HAND // number of bytes to copy
+            );
 
-    // start of matrix stored at 0x00
-    err = i2c_master_write(0x00);
-    if (err) goto i2c_error;
-
-    // Start read
-    err = i2c_master_start(SLAVE_I2C_ADDRESS + I2C_READ);
-    if (err) goto i2c_error;
-
-    if (!err) {
-        int i;
-        for (i = 0; i < ROWS_PER_HAND-1; ++i) {
-            matrix[slaveOffset+i] = i2c_master_read(I2C_ACK);
-        }
-        matrix[slaveOffset+i] = i2c_master_read(I2C_NACK);
-        i2c_master_stop();
-    } else {
-i2c_error: // the cable is disconnceted, or something else went wrong
-        i2c_reset_state();
-        return err;
-    }
-
-    return 0;
+    i2c_reset_state();
+    return err;
 }
 
 int serial_transaction(void) {

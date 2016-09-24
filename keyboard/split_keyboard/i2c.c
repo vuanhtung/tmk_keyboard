@@ -32,6 +32,52 @@ void i2c_delay(void) {
   // _delay_us(100);
 }
 
+// i2c_device_addr: the i2c device to communicate with
+// addr: the memory address to read from the i2c device
+// dest: pointer to where read data is saved
+// len: the number of bytes to read
+bool i2c_read_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *dest, uint8_t len) {
+  bool err;
+  if (len == 0) return 0;
+
+  err = i2c_master_start(i2c_device_addr + I2C_WRITE);
+  if (err) return 0x00;
+  err = i2c_master_write(addr);
+
+  err = i2c_master_start(i2c_device_addr + I2C_READ);
+  if (err) return err;
+
+  for (uint8_t i = 0; i < len-1; ++i) {
+    dest[i] = i2c_master_read(I2C_ACK);
+  }
+  dest[len-1] = i2c_master_read(I2C_NACK);
+  i2c_master_stop();
+
+  return 0;
+}
+
+// i2c_device_addr: the i2c device to communicate with
+// addr: the memory address at which to write in the i2c device
+// data: the data to be written
+// len: the number of bytes to write
+bool i2c_write_bytes(uint8_t i2c_device_addr, uint8_t addr, uint8_t *data, uint8_t len) {
+  bool err;
+
+  if (len == 0) return 0;
+
+  err = i2c_master_start(i2c_device_addr + I2C_WRITE);
+  if (err) return err;
+  err = i2c_master_write(addr);
+  if (err) return err;
+
+  for (uint8_t i = 0; i < len; ++i) {
+    err = i2c_master_write(data[i]);
+    if (err) return err;
+  }
+  i2c_master_stop();
+  return 0;
+}
+
 // Setup twi to run at 100kHz
 void i2c_master_init(void) {
   // no prescaler
