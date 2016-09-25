@@ -6,6 +6,12 @@
 #include <stdbool.h>
 #include "i2c.h"
 
+#define I2C_READ 1
+#define I2C_WRITE 0
+
+#define I2C_ACK 1
+#define I2C_NACK 0
+
 // Limits the amount of we wait for any one i2c transaction.
 // Since were running SCL line 100kHz (=> 10μs/bit), and each transactions is
 // 9 bits, a single transaction will take around 90μs to complete.

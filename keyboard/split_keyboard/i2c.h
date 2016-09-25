@@ -3,16 +3,6 @@
 
 #include <stdint.h>
 
-#ifndef F_CPU
-#define F_CPU 16000000UL
-#endif
-
-#define I2C_READ 1
-#define I2C_WRITE 0
-
-#define I2C_ACK 1
-#define I2C_NACK 0
-
 #define SLAVE_BUFFER_SIZE 0x40
 
 // i2c SCL clock frequency

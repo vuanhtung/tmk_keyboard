@@ -133,7 +133,7 @@ int i2c_transaction(void) {
         );
 
 #ifdef I2C_WRITE_TEST_CODE
-    // test_data toggles second
+    // controls the RX led on the slave and toggles it every second
     uint8_t test_data = (timer_read() / 1000) % 2;
 
     err |= i2c_master_write(
@@ -203,7 +203,8 @@ void matrix_slave_scan(void) {
     }
 
 #ifdef I2C_WRITE_TEST_CODE
-    // control the pro micro RX LED
+    // control the pro micro RX LED based on what the
+    // i2c master has sent us
     uint8_t led_state = i2c_slave_read(I2C_LED_ADDR);
     if (led_state == 1) {
         RXLED1;
