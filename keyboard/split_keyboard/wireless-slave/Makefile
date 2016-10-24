@@ -79,11 +79,11 @@ build-right: OPT_DEFS += -DDEVICE_ID=1
 build-right: hex
 
 program-left: build-left
-program-left: program-slave program-eeprom
+program-left: program-slave
 # program-left: lock
 
 program-right: build-right
-program-right: program-slave program-eeprom
+program-right: program-slave
 # program-right: lock
 
 # fuses:
