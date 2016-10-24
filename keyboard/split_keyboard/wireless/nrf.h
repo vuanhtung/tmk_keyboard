@@ -6,6 +6,13 @@
 #include "nRF24L01.h"
 #include "../split-config.h"
 
+#define CRC_0 ((0<<CRCO) | (0<<EN_CRC))
+#define CRC_8 ((0<<CRCO) | (1<<EN_CRC))
+#define CRC_16 ((1<<CRCO) | (1<<EN_CRC))
+
+#define RF_ADDRESS_LEN 5
+#define CRC_METHOD CRC_16
+
 #if defined(__AVR_ATmega32U4__)
 #ifndef CE
   #define CE 5   // b5
@@ -34,9 +41,10 @@
 #define RF_MAX_RETRANSMIT 15 // 0-15
 #endif
 
-#ifndef RF_ADDRESS_LEN
-#define RF_ADDRESS_LEN 3 // 3-5 bytes
-#endif
+
+/* #ifndef RF_ADDRESS_LEN */
+/* #define RF_ADDRESS_LEN 3 // 3-5 bytes */
+/* #endif */
 
 enum nrf_data_rate_t {
   NRF_250KBS = (1<<RF_DR_LOW) | (0<<RF_DR_HIGH),
@@ -69,6 +77,7 @@ void load_eeprom_settings(device_settings_t *settings);
 void nrf_setup(device_settings_t *settings);
 uint8_t nrf_power_set(bool on);
 void nrf_enable(uint8_t val);
+uint8_t nrf_get_status(void);
 uint8_t nrf_clear_flags(void);
 
 // send

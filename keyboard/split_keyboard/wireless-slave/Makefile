@@ -79,11 +79,11 @@ build-right: OPT_DEFS += -DDEVICE_ID=1
 build-right: hex
 
 program-left: build-left
-program-left: program-slave
+program-left: program-slave program-eeprom
 # program-left: lock
 
 program-right: build-right
-program-right: program-slave
+program-right: program-slave program-eeprom
 # program-right: lock
 
 # fuses:
@@ -104,9 +104,10 @@ lock:
 
 program-slave:
 	$(AVRDUDE_CMD) -U flash:w:$(TARGET).hex:i
-	$(AVRDUDE_CMD_SLOW) -U eeprom:w:$(EEPROM_FILE):i
+	sleep 3
+	$(AVRDUDE_CMD) -U eeprom:w:$(EEPROM_FILE):i
 
-eeprom:
-	$(AVRDUDE_CMD_SLOW) -U eeprom:w:$(EEPROM_FILE):i
+program-eeprom:
+	$(AVRDUDE_CMD) -U eeprom:w:$(EEPROM_FILE):i
 
 .PHONY: eeprom program-slave lock fuses

@@ -126,12 +126,15 @@ uint8_t nrf_clear_flags(void) {
   return write_reg(NRF_STATUS, 0x70);
 }
 
-// CRC = 1 byte
+uint8_t nrf_get_status(void) {
+  return read_reg(NRF_STATUS);
+}
+
 uint8_t nrf_power_set(bool on) {
 #if DEVICE_ID==MASTER_DEVICE_ID
-  return write_reg(CONFIG, (0<<CRCO) | (1<<EN_CRC) | (on<<PWR_UP) | (1<<PRIM_RX));
+  return write_reg(CONFIG, CRC_METHOD | (on<<PWR_UP) | (1<<PRIM_RX));
 #else // slave
-  return write_reg(CONFIG, (0<<CRCO) | (1<<EN_CRC) | (on<<PWR_UP) | (0<<PRIM_RX));
+  return write_reg(CONFIG, CRC_METHOD | (on<<PWR_UP) | (0<<PRIM_RX));
 #endif
 }
 
