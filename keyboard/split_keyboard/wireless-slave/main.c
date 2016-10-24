@@ -223,24 +223,19 @@ int main(void) {
     // loop runs.
     matrix_scan_slow(&scan);
 
+    nrf_status = nrf_get_status();
+
     /* if(nrf_status & (1<<TX_DS)) { // data sent, recieved ack */
     /*     error_rate=0; */
     /* } */
 
-    if(nrf_status & (1<<MAX_RT)) {
+    if (nrf_status & (1<<MAX_RT) || nrf_status & (1<<TX_FULL)) {
       clock_fast();
-      nrf_send_all();
-      clock_delay_fast_ms(1);
       spi_command(FLUSH_TX);
       nrf_clear_flags();
-      nrf_status = 0;
-
-      /* error_rate++; */
-      /* if (error_rate == ERROR_LIMIT) { */
-      /*   slave_disconnect_pause(); */
-      /* } */
       clock_slow();
     }
+
 
     const uint8_t should_ping = scan_rate_counter == 0;
     // only send the scan result if something changed
@@ -274,9 +269,9 @@ int main(void) {
       uint8_t encrypted_data[AES_BUF_LEN];
       ecb_encrypt(&ecb_state, &aes_ctx, encrypted_data);
 
-      nrf_status = nrf_load_tx_fifo(encrypted_data, RF_BUFFER_LEN);
+      nrf_load_tx_fifo(encrypted_data, RF_BUFFER_LEN);
 #else
-      nrf_status = nrf_load_tx_fifo(&ecb_state, RF_BUFFER_LEN);
+      nrf_load_tx_fifo(&ecb_state, RF_BUFFER_LEN);
 #endif
       nrf_send_one();
 
