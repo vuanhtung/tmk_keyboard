@@ -15,13 +15,22 @@ enum function_id {
     PROMICRO_PROGRAM,
 };
 
-#define AC_FN1            ACTION_LAYER_ONESHOT(3)
-#define AC_FN2            ACTION_LAYER_ONESHOT(4)
-#define AC_FN3            ACTION_LAYER_ONESHOT(5)
-#define AC_SSFT           ACTION_MODS_ONESHOT(MOD_LSFT)
-#define AC_SFT_ENT        ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ENT)
+#define AC_FN0            ACTION_LAYER_TAP_TOGGLE(3)
+#define AC_FN1            ACTION_LAYER_TAP_TOGGLE(4)
+//#define AC_FN1            ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
+#define AC_FN2            ACTION_LAYER_TAP_TOGGLE(5)
+#define AC_FN3            ACTION_LAYER_SET_CLEAR(0)
 
-#define AC_FN0            ACTION_FUNCTION(RESET_LAYER_STATE)
+#define AC_FN4            AC_TRNS
+#define AC_FN5            AC_TRNS
+#define AC_FN6            AC_TRNS
+#define AC_FN7            AC_TRNS
+#define AC_FN8            AC_PROMICRO_RESET
+
+#define AC_W_CAP		  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_CAPS)
+#define AC_S_SFT	 	  ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT))
+
+
 #define AC_QWERTY         ACTION_DEFAULT_LAYER_SET(0)
 #define AC_DVORAK         ACTION_DEFAULT_LAYER_SET(1)
 #define AC_COLEMAK        ACTION_DEFAULT_LAYER_SET(2)
@@ -33,80 +42,80 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
     [0] = ACTIONMAP(
         /* left hand */
-            TAB     , Q   , W    , E   , R   , T ,
-            SFT_ENT , A   , S    , D   , F   , G ,
-            LALT    , Z   , X    , C   , V   , B ,
-            NO      , FN3 , LCTL , SPC , FN2 ,
+            Q   , W     , E    , R    , T    ,
+            A   , S     , D    , F    , G    ,
+            Z   , X     , C    , V    , B    ,
+            ESC , W_CAP , TAB  , S_SFT, SPC , LCTL ,
         /* right hand */
-            Y    , U    , I    , O    , P    , MINS ,
-            H    , J    , K    , L    , SCLN , QUOT ,
-            N    , M    , COMM , DOT  , SLSH , FN0  ,
-            BSPC , SSFT , FN1  , LGUI , NO
+                   Y    , U    , I    , O    , P    ,
+                   H    , J    , K    , L    , SCLN ,
+                   N    , M    , COMM , DOT  , SLSH ,
+            FN0  , ENT  , BSPC , DOWN , QUOT , RALT
     ),
     /* dvorak */
     [1] = ACTIONMAP(
         /* left hand */
-            TRNS , QUOT , COMM , DOT  , P    , Y ,
-            TRNS , A    , O    , E    , U    , I ,
-            TRNS , SCLN , Q    , J    , K    , X ,
-            TRNS , TRNS , TRNS , TRNS , TRNS ,
+            QUOT , COMM , DOT  , P    , Y    ,
+            A    , O    , E    , U    , I    ,
+            SCLN , Q    , J    , K    , X    ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS , 
         /* right hand */
-            F    , G    , C    , R    , L    , SLSH ,
-            D    , H    , T    , N    , S    , MINS ,
-            B    , M    , W    , V    , Z    , TRNS  ,
-            TRNS , TRNS , TRNS , TRNS , TRNS
+                   F    , G    , C    , R    , L    , 
+                   D    , H    , T    , N    , S    ,
+                   B    , M    , W    , V    , Z    ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
     ),
     /* colemak */
     [2] = ACTIONMAP(
         /* left hand */
-            TRNS , Q    , W    , F    , P    , G ,
-            TRNS , A    , R    , S    , T    , D ,
-            TRNS , Z    , X    , C    , V    , B ,
-            TRNS , TRNS , TRNS , TRNS , TRNS ,
+            Q    , W    , F    , P    , G    ,
+            A    , R    , S    , T    , D    ,
+            Z    , X    , C    , V    , B    ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
         /* right hand */
-            J    , L    , U    , Y    , SCLN , MINS ,
-            H    , N    , E    , I    , O    , QUOT ,
-            K    , M    , COMM , DOT  , SLSH , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS
+                   J    , L    , U    , Y    , SCLN ,
+                   H    , N    , E    , I    , O    ,
+                   K    , M    , COMM , DOT  , SLSH ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
    ),
    /* symbol */
    [3] = ACTIONMAP(
-       /* left hand */
-            TRNS , GRV  , 2    , 3    , 4    , 5       ,
-            TRNS , 1    , BSLS , s(9) , LBRC , s(LBRC) ,
-            TRNS , s(1) , s(2) , s(3) , s(4) , s(5)    ,
-            TRNS , TRNS , TRNS , TRNS , TRNS ,
+		/* left hand */
+			1    , 2    , 3    , 4    , 5    ,
+            s(9) , LBRC , UP   , RBRC , s(0) ,
+            EQL  , LEFT , DOWN , RGHT , MINS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
         /* right hand */
-            6       , 7    , 8    , 9      , s(EQL)  , MINS   ,
-            s(RBRC) , RBRC , s(0) , EQL    , 0       , s(GRV) ,
-            s(6)    , s(7) , s(8) , DOT    , s(BSLS) , FN0    ,
-            TRNS    , TRNS , TRNS , TRNS   , TRNS
+                   6    , 7    , 8    , 9    , 0    ,
+                   BSLS , DEL  , EQL  , PSCR , GRV  ,
+                   HOME , PGUP , PGDN , END  , INS  ,
+            TRNS , FN1  , TRNS , TRNS , TRNS , TRNS
     ),
     /* fn */
     [4] = ACTIONMAP(
         /* left hand */
-            INS  , DEL  , HOME , UP   , END  , PGUP ,
-            TRNS , ESC  , LEFT , DOWN , RGHT , PGDN ,
-            TRNS , F1   , F2   , F3   , F4   , F5   ,
             TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , TRNS , TRNS ,
+            F1   , F2   , F3   , F4   , F5   ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
         /* right hand */
-            c(PGUP) , c(HOME) , c(UP)   , c(END)  , c(DEL)  , F12 ,
-            c(PGDN) , c(LEFT) , c(DOWN) , c(RGHT) , c(BSPC) , F11 ,
-            F6      , F7      , F8      , F9      , F10     , FN0 ,
-            TRNS    , TRNS    , TRNS    , TRNS    , TRNS
+				   TRNS , TRNS , TRNS , TRNS , TRNS ,
+				   TRNS , TRNS , TRNS , TRNS , TRNS ,
+				   F6   , F7   , F8   , F9   , F10  ,
+            TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
         ),
     /* media */
     [5] = ACTIONMAP(
         /* left hand */
-            NO   , PSCR , MPLY , VOLU , MSTP   , F11     ,
-            BSPC , MUTE , MPRV , VOLD , MNXT   , APP     ,
-            LGUI , c(Y) , c(B) , c(I) , c(DOT) , c(SCLN) ,
-            TRNS , TRNS , TRNS , TRNS , TRNS   ,
+            FN4  , FN5  , FN6  , FN7  , FN8   ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , 
+            TRNS , TRNS , TRNS , TRNS , TRNS , 
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
         /* right hand */
-            WH_U , BTN1   , MS_U   , BTN2    , NO   , PROMICRO_PROGRAM  ,
-            WH_D , MS_L   , MS_D   , MS_R    , NO   , PROMICRO_RESET  ,
-            NO   , QWERTY , DVORAK , COLEMAK , NO   , FN0 ,
-            TRNS , TRNS   , TRNS   , TRNS    , TRNS
+                   TRNS , TRNS , TRNS , TRNS , TRNS , 
+                   TRNS , TRNS , TRNS , TRNS , TRNS , 
+                   TRNS , TRNS , TRNS , TRNS , TRNS ,
+            TRNS , TRNS , TRNS , FN3  , TRNS , TRNS
     ),
 };
 
