@@ -183,3 +183,6 @@ Config.h Options
     #define NO_ACTION_FUNCTION
 
 ***TBD***
+
+
+../../tmk_core/common/actionmap.c:25:5: internal compiler error: in iterative_hash_expr, at tree.c:6862
