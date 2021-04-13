@@ -193,7 +193,7 @@ Config.h Options
 
 Replace
 
-```return (action_t){ .code = pgm_read_word(&fn_actions[FN_INDEX(keycode)]) };```
+```return (action_t)pgm_read_word(&actionmaps[(layer)][(key.row)][(key.col)]);```
 
 with
 
