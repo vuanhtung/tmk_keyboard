@@ -42,81 +42,83 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* qwerty */
     [0] = ACTIONMAP(
         /* left hand */
-            Q   , W     , E    , R    , T    ,
-            A   , S     , D    , F    , G    ,
-            Z   , X     , C    , V    , B    ,
-            ESC , W_CAP , TAB  , S_SFT, SPC , LCTL ,
+            NUHS , 1    , 2    , 3    , 4    , 5    ,
+            TAB  , Q    , W    , E    , R    , T    ,
+            CAPS , A    , S    , D    , F    , G    ,
+            LSFT , Z    , X    , C    , V    , B    ,
+            ESC  , W_CAP, TAB  , S_SFT, SPC  , LCTL ,
         /* right hand */
-                   Y    , U    , I    , O    , P    ,
-                   H    , J    , K    , L    , SCLN ,
-                   N    , M    , COMM , DOT  , SLSH ,
+            6    , 7    , 8    , 9    , 0    , MINS ,
+            Y    , U    , I    , O    , P    , LBRC ,
+            H    , J    , K    , L    , SCLN , QUOT ,
+            N    , M    , COMM , DOT  , SLSH , RSFT ,
             FN0  , ENT  , BSPC , DOWN , QUOT , RALT
-    ),
-    /* dvorak */
-    [1] = ACTIONMAP(
-        /* left hand */
-            QUOT , COMM , DOT  , P    , Y    ,
-            A    , O    , E    , U    , I    ,
-            SCLN , Q    , J    , K    , X    ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS , 
-        /* right hand */
-                   F    , G    , C    , R    , L    , 
-                   D    , H    , T    , N    , S    ,
-                   B    , M    , W    , V    , Z    ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
-    ),
-    /* colemak */
-    [2] = ACTIONMAP(
-        /* left hand */
-            Q    , W    , F    , P    , G    ,
-            A    , R    , S    , T    , D    ,
-            Z    , X    , C    , V    , B    ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        /* right hand */
-                   J    , L    , U    , Y    , SCLN ,
-                   H    , N    , E    , I    , O    ,
-                   K    , M    , COMM , DOT  , SLSH ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
-   ),
-   /* symbol */
-   [3] = ACTIONMAP(
-		/* left hand */
-			1    , 2    , 3    , 4    , 5    ,
-            s(9) , LBRC , UP   , RBRC , s(0) ,
-            EQL  , LEFT , DOWN , RGHT , MINS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        /* right hand */
-                   6    , 7    , 8    , 9    , 0    ,
-                   BSLS , DEL  , EQL  , PSCR , GRV  ,
-                   HOME , PGUP , PGDN , END  , INS  ,
-            TRNS , FN1  , TRNS , TRNS , TRNS , TRNS
-    ),
-    /* fn */
-    [4] = ACTIONMAP(
-        /* left hand */
-            TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , TRNS , TRNS ,
-            F1   , F2   , F3   , F4   , F5   ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        /* right hand */
-				   TRNS , TRNS , TRNS , TRNS , TRNS ,
-				   TRNS , TRNS , TRNS , TRNS , TRNS ,
-				   F6   , F7   , F8   , F9   , F10  ,
-            TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
-        ),
-    /* media */
-    [5] = ACTIONMAP(
-        /* left hand */
-            FN4  , FN5  , FN6  , FN7  , FN8   ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , 
-            TRNS , TRNS , TRNS , TRNS , TRNS , 
-            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
-        /* right hand */
-                   TRNS , TRNS , TRNS , TRNS , TRNS , 
-                   TRNS , TRNS , TRNS , TRNS , TRNS , 
-                   TRNS , TRNS , TRNS , TRNS , TRNS ,
-            TRNS , TRNS , TRNS , FN3  , TRNS , TRNS
-    ),
+    )
+    // /* dvorak */
+    // [1] = ACTIONMAP(
+        // /* left hand */
+            // QUOT , COMM , DOT  , P    , Y    ,
+            // A    , O    , E    , U    , I    ,
+            // SCLN , Q    , J    , K    , X    ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS , 
+        // /* right hand */
+                   // F    , G    , C    , R    , L    , 
+                   // D    , H    , T    , N    , S    ,
+                   // B    , M    , W    , V    , Z    ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
+    // ),
+    // /* colemak */
+    // [2] = ACTIONMAP(
+        // /* left hand */
+            // Q    , W    , F    , P    , G    ,
+            // A    , R    , S    , T    , D    ,
+            // Z    , X    , C    , V    , B    ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        // /* right hand */
+                   // J    , L    , U    , Y    , SCLN ,
+                   // H    , N    , E    , I    , O    ,
+                   // K    , M    , COMM , DOT  , SLSH ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
+   // ),
+   // /* symbol */
+   // [3] = ACTIONMAP(
+		// /* left hand */
+			// 1    , 2    , 3    , 4    , 5    ,
+            // s(9) , LBRC , UP   , RBRC , s(0) ,
+            // EQL  , LEFT , DOWN , RGHT , MINS ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        // /* right hand */
+                   // 6    , 7    , 8    , 9    , 0    ,
+                   // BSLS , DEL  , EQL  , PSCR , GRV  ,
+                   // HOME , PGUP , PGDN , END  , INS  ,
+            // TRNS , FN1  , TRNS , TRNS , TRNS , TRNS
+    // ),
+    // /* fn */
+    // [4] = ACTIONMAP(
+        // /* left hand */
+            // TRNS , TRNS , TRNS , TRNS , TRNS ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS ,
+            // F1   , F2   , F3   , F4   , F5   ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        // /* right hand */
+				   // TRNS , TRNS , TRNS , TRNS , TRNS ,
+				   // TRNS , TRNS , TRNS , TRNS , TRNS ,
+				   // F6   , F7   , F8   , F9   , F10  ,
+            // TRNS , TRNS , FN2  , TRNS , TRNS , TRNS
+        // ),
+    // /* media */
+    // [5] = ACTIONMAP(
+        // /* left hand */
+            // FN4  , FN5  , FN6  , FN7  , FN8   ,
+            // TRNS , TRNS , TRNS , TRNS , TRNS , 
+            // TRNS , TRNS , TRNS , TRNS , TRNS , 
+            // TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
+        // /* right hand */
+                   // TRNS , TRNS , TRNS , TRNS , TRNS , 
+                   // TRNS , TRNS , TRNS , TRNS , TRNS , 
+                   // TRNS , TRNS , TRNS , TRNS , TRNS ,
+            // TRNS , TRNS , TRNS , FN3  , TRNS , TRNS
+    // ),
 };
 
 void promicro_bootloader_jmp(bool program) {
