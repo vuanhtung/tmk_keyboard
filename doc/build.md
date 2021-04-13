@@ -184,5 +184,14 @@ Config.h Options
 
 ***TBD***
 
+## Errors:
+
+### Error 1
 
 ../../tmk_core/common/actionmap.c:25:5: internal compiler error: in iterative_hash_expr, at tree.c:6862
+### Fix
+
+Replace
+    return (action_t){ .code = pgm_read_word(&fn_actions[FN_INDEX(keycode)]) };
+with
+    return (action_t){ .code = pgm_read_word(&actionmaps[(layer)][(key.row)][(key.col)]) };

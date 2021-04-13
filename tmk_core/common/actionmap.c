@@ -22,7 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 __attribute__ ((weak))
 action_t action_for_key(uint8_t layer, keypos_t key)
 {
-    return (action_t)pgm_read_word(&actionmaps[(layer)][(key.row)][(key.col)]);
+    return (action_t){ .code = pgm_read_word(&actionmaps[(layer)][(key.row)][(key.col)]) };
+//    return (action_t){ .code = pgm_read_word(&fn_actions[FN_INDEX(keycode)]) };
 }
 
 /* Macro */
