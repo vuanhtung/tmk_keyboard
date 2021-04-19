@@ -501,7 +501,7 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x5bd4
+.text           0x00000000     0x5bcc
  *(.vectors)
  .vectors       0x00000000       0xac c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
                 0x00000000                __vector_default
@@ -635,551 +635,551 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
  .text.unselect_rows
                 0x00000e78       0x48 obj_split_keyboard/matrix.o
  .text.matrix_init
-                0x00000ec0       0x6e obj_split_keyboard/matrix.o
+                0x00000ec0       0x6a obj_split_keyboard/matrix.o
                 0x00000ec0                matrix_init
  .text._matrix_scan
-                0x00000f2e      0x154 obj_split_keyboard/matrix.o
-                0x00000f2e                _matrix_scan
+                0x00000f2a      0x154 obj_split_keyboard/matrix.o
+                0x00000f2a                _matrix_scan
  .text.serial_transaction
-                0x00001082       0x4e obj_split_keyboard/matrix.o
-                0x00001082                serial_transaction
+                0x0000107e       0x4e obj_split_keyboard/matrix.o
+                0x0000107e                serial_transaction
  .text.matrix_scan
-                0x000010d0       0x4e obj_split_keyboard/matrix.o
-                0x000010d0                matrix_scan
+                0x000010cc       0x4a obj_split_keyboard/matrix.o
+                0x000010cc                matrix_scan
  .text.matrix_slave_scan
-                0x0000111e       0x38 obj_split_keyboard/matrix.o
-                0x0000111e                matrix_slave_scan
+                0x00001116       0x38 obj_split_keyboard/matrix.o
+                0x00001116                matrix_slave_scan
  .text.matrix_get_row
-                0x00001156        0xc obj_split_keyboard/matrix.o
-                0x00001156                matrix_get_row
+                0x0000114e        0xc obj_split_keyboard/matrix.o
+                0x0000114e                matrix_get_row
  .text.matrix_print
-                0x00001162       0x9e obj_split_keyboard/matrix.o
-                0x00001162                matrix_print
+                0x0000115a       0x9e obj_split_keyboard/matrix.o
+                0x0000115a                matrix_print
  .text.__vector_36
-                0x00001200       0xd2 obj_split_keyboard/i2c.o
-                0x00001200                __vector_36
+                0x000011f8       0xd2 obj_split_keyboard/i2c.o
+                0x000011f8                __vector_36
  .text.serial_output
-                0x000012d2        0x4 obj_split_keyboard/serial.o
+                0x000012ca        0x4 obj_split_keyboard/serial.o
  .text.serial_input
-                0x000012d6        0x6 obj_split_keyboard/serial.o
+                0x000012ce        0x6 obj_split_keyboard/serial.o
  .text.serial_high
-                0x000012dc        0x4 obj_split_keyboard/serial.o
+                0x000012d4        0x4 obj_split_keyboard/serial.o
  .text.sync_recv
-                0x000012e0       0x12 obj_split_keyboard/serial.o
+                0x000012d8       0x12 obj_split_keyboard/serial.o
  .text.sync_send
-                0x000012f2       0x12 obj_split_keyboard/serial.o
+                0x000012ea       0x12 obj_split_keyboard/serial.o
  .text.serial_read_byte
-                0x00001304       0x24 obj_split_keyboard/serial.o
+                0x000012fc       0x24 obj_split_keyboard/serial.o
  .text.serial_write_byte
-                0x00001328       0x3e obj_split_keyboard/serial.o
+                0x00001320       0x3e obj_split_keyboard/serial.o
  .text.serial_master_init
-                0x00001366        0xa obj_split_keyboard/serial.o
-                0x00001366                serial_master_init
+                0x0000135e        0xa obj_split_keyboard/serial.o
+                0x0000135e                serial_master_init
  .text.serial_slave_init
-                0x00001370       0x12 obj_split_keyboard/serial.o
-                0x00001370                serial_slave_init
+                0x00001368       0x12 obj_split_keyboard/serial.o
+                0x00001368                serial_slave_init
  .text.__vector_1
-                0x00001382       0xe6 obj_split_keyboard/serial.o
-                0x00001382                __vector_1
+                0x0000137a       0xe6 obj_split_keyboard/serial.o
+                0x0000137a                __vector_1
  .text.serial_update_buffers
-                0x00001468       0xb8 obj_split_keyboard/serial.o
-                0x00001468                serial_update_buffers
- .text.has_usb  0x00001520       0x1a obj_split_keyboard/split-util.o
-                0x00001520                has_usb
+                0x00001460       0xb8 obj_split_keyboard/serial.o
+                0x00001460                serial_update_buffers
+ .text.has_usb  0x00001518       0x1a obj_split_keyboard/split-util.o
+                0x00001518                has_usb
  .text.split_keyboard_setup
-                0x0000153a       0x2a obj_split_keyboard/split-util.o
-                0x0000153a                split_keyboard_setup
+                0x00001532       0x2a obj_split_keyboard/split-util.o
+                0x00001532                split_keyboard_setup
  .text.keyboard_slave_loop
-                0x00001564        0xa obj_split_keyboard/split-util.o
-                0x00001564                keyboard_slave_loop
+                0x0000155c        0xa obj_split_keyboard/split-util.o
+                0x0000155c                keyboard_slave_loop
  .text.matrix_setup
-                0x0000156e       0x12 obj_split_keyboard/split-util.o
-                0x0000156e                matrix_setup
- .text.led_set  0x00001580        0x2 obj_split_keyboard/led.o
-                0x00001580                led_set
+                0x00001566       0x12 obj_split_keyboard/split-util.o
+                0x00001566                matrix_setup
+ .text.led_set  0x00001578        0x2 obj_split_keyboard/led.o
+                0x00001578                led_set
  .text.keyboard_leds
-                0x00001582        0x6 obj_split_keyboard/protocol/lufa/lufa.o
+                0x0000157a        0x6 obj_split_keyboard/protocol/lufa/lufa.o
  .text.sendchar
-                0x00001588       0xcc obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001588                sendchar
+                0x00001580       0xcc obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001580                sendchar
  .text.send_consumer
-                0x00001654       0x68 obj_split_keyboard/protocol/lufa/lufa.o
+                0x0000164c       0x68 obj_split_keyboard/protocol/lufa/lufa.o
  .text.send_system
-                0x000016bc       0x6a obj_split_keyboard/protocol/lufa/lufa.o
+                0x000016b4       0x6a obj_split_keyboard/protocol/lufa/lufa.o
  .text.send_mouse
-                0x00001726       0x48 obj_split_keyboard/protocol/lufa/lufa.o
+                0x0000171e       0x48 obj_split_keyboard/protocol/lufa/lufa.o
  .text.send_keyboard
-                0x0000176e       0xae obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001766       0xae obj_split_keyboard/protocol/lufa/lufa.o
  .text.EVENT_USB_Device_Connect
-                0x0000181c       0x24 obj_split_keyboard/protocol/lufa/lufa.o
-                0x0000181c                EVENT_USB_Device_Connect
+                0x00001814       0x24 obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001814                EVENT_USB_Device_Connect
  .text.EVENT_USB_Device_Disconnect
-                0x00001840        0xe obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001840                EVENT_USB_Device_Disconnect
+                0x00001838        0xe obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001838                EVENT_USB_Device_Disconnect
  .text.EVENT_USB_Device_Reset
-                0x0000184e        0xa obj_split_keyboard/protocol/lufa/lufa.o
-                0x0000184e                EVENT_USB_Device_Reset
+                0x00001846        0xa obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001846                EVENT_USB_Device_Reset
  .text.EVENT_USB_Device_Suspend
-                0x00001858        0xe obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001858                EVENT_USB_Device_Suspend
+                0x00001850        0xe obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001850                EVENT_USB_Device_Suspend
  .text.EVENT_USB_Device_WakeUp
-                0x00001866       0x1a obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001866                EVENT_USB_Device_WakeUp
+                0x0000185e       0x1a obj_split_keyboard/protocol/lufa/lufa.o
+                0x0000185e                EVENT_USB_Device_WakeUp
  .text.EVENT_USB_Device_StartOfFrame
-                0x00001880       0x80 obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001880                EVENT_USB_Device_StartOfFrame
+                0x00001878       0x80 obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001878                EVENT_USB_Device_StartOfFrame
  .text.EVENT_USB_Device_ConfigurationChanged
-                0x00001900       0x34 obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001900                EVENT_USB_Device_ConfigurationChanged
+                0x000018f8       0x34 obj_split_keyboard/protocol/lufa/lufa.o
+                0x000018f8                EVENT_USB_Device_ConfigurationChanged
  .text.EVENT_USB_Device_ControlRequest
-                0x00001934      0x17e obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001934                EVENT_USB_Device_ControlRequest
+                0x0000192c      0x17e obj_split_keyboard/protocol/lufa/lufa.o
+                0x0000192c                EVENT_USB_Device_ControlRequest
  .text.startup.main
-                0x00001ab2       0xa0 obj_split_keyboard/protocol/lufa/lufa.o
-                0x00001ab2                main
+                0x00001aaa       0xa0 obj_split_keyboard/protocol/lufa/lufa.o
+                0x00001aaa                main
  .text.CALLBACK_USB_GetDescriptor
-                0x00001b52       0xa6 obj_split_keyboard/protocol/lufa/descriptor.o
-                0x00001b52                CALLBACK_USB_GetDescriptor
+                0x00001b4a       0xa6 obj_split_keyboard/protocol/lufa/descriptor.o
+                0x00001b4a                CALLBACK_USB_GetDescriptor
  .text.USB_Device_SendRemoteWakeup
-                0x00001bf8       0x2c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
-                0x00001bf8                USB_Device_SendRemoteWakeup
+                0x00001bf0       0x2c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+                0x00001bf0                USB_Device_SendRemoteWakeup
  .text.Endpoint_Write_Stream_LE
-                0x00001c24       0xa2 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x00001c24                Endpoint_Write_Stream_LE
+                0x00001c1c       0xa2 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x00001c1c                Endpoint_Write_Stream_LE
  .text.Endpoint_Write_Control_Stream_LE
-                0x00001cc6       0xcc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x00001cc6                Endpoint_Write_Control_Stream_LE
+                0x00001cbe       0xcc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x00001cbe                Endpoint_Write_Control_Stream_LE
  .text.Endpoint_Write_Control_PStream_LE
-                0x00001d92       0xce obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x00001d92                Endpoint_Write_Control_PStream_LE
+                0x00001d8a       0xce obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x00001d8a                Endpoint_Write_Control_PStream_LE
  .text.Endpoint_ConfigureEndpoint_Prv
-                0x00001e60       0x6a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00001e60                Endpoint_ConfigureEndpoint_Prv
+                0x00001e58       0x6a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x00001e58                Endpoint_ConfigureEndpoint_Prv
  .text.Endpoint_ClearStatusStage
-                0x00001eca       0x42 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00001eca                Endpoint_ClearStatusStage
+                0x00001ec2       0x42 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x00001ec2                Endpoint_ClearStatusStage
  .text.Endpoint_WaitUntilReady
-                0x00001f0c       0x66 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00001f0c                Endpoint_WaitUntilReady
+                0x00001f04       0x66 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x00001f04                Endpoint_WaitUntilReady
  .text.USB_Disable
-                0x00001f72       0x34 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x00001f72                USB_Disable
+                0x00001f6a       0x34 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00001f6a                USB_Disable
  .text.USB_ResetInterface
-                0x00001fa6       0x86 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x00001fa6                USB_ResetInterface
+                0x00001f9e       0x86 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00001f9e                USB_ResetInterface
  .text.USB_Init
-                0x0000202c       0x24 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x0000202c                USB_Init
+                0x00002024       0x24 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00002024                USB_Init
  .text.USB_INT_DisableAllInterrupts
-                0x00002050       0x10 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00002050                USB_INT_DisableAllInterrupts
+                0x00002048       0x10 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00002048                USB_INT_DisableAllInterrupts
  .text.USB_INT_ClearAllInterrupts
-                0x00002060        0xa obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00002060                USB_INT_ClearAllInterrupts
+                0x00002058        0xa obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00002058                USB_INT_ClearAllInterrupts
  .text.__vector_10
-                0x0000206a      0x1a4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x0000206a                __vector_10
+                0x00002062      0x1a4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00002062                __vector_10
  .text.__vector_11
-                0x0000220e       0x78 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x0000220e                __vector_11
+                0x00002206       0x78 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00002206                __vector_11
  .text.USB_Device_ProcessControlRequest
-                0x00002286      0x2dc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                0x00002286                USB_Device_ProcessControlRequest
+                0x0000227e      0x2dc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                0x0000227e                USB_Device_ProcessControlRequest
  .text.host_set_driver
-                0x00002562        0xa obj_split_keyboard/common/host.o
-                0x00002562                host_set_driver
+                0x0000255a        0xa obj_split_keyboard/common/host.o
+                0x0000255a                host_set_driver
  .text.host_keyboard_leds
-                0x0000256c       0x1a obj_split_keyboard/common/host.o
-                0x0000256c                host_keyboard_leds
+                0x00002564       0x1a obj_split_keyboard/common/host.o
+                0x00002564                host_keyboard_leds
  .text.host_keyboard_send
-                0x00002586       0x96 obj_split_keyboard/common/host.o
-                0x00002586                host_keyboard_send
+                0x0000257e       0x96 obj_split_keyboard/common/host.o
+                0x0000257e                host_keyboard_send
  .text.host_mouse_send
-                0x0000261c       0x16 obj_split_keyboard/common/host.o
-                0x0000261c                host_mouse_send
+                0x00002614       0x16 obj_split_keyboard/common/host.o
+                0x00002614                host_mouse_send
  .text.host_system_send
-                0x00002632       0x2c obj_split_keyboard/common/host.o
-                0x00002632                host_system_send
+                0x0000262a       0x2c obj_split_keyboard/common/host.o
+                0x0000262a                host_system_send
  .text.host_consumer_send
-                0x0000265e       0x2c obj_split_keyboard/common/host.o
-                0x0000265e                host_consumer_send
+                0x00002656       0x2c obj_split_keyboard/common/host.o
+                0x00002656                host_consumer_send
  .text.keyboard_setup
-                0x0000268a        0x6 obj_split_keyboard/common/keyboard.o
-                0x0000268a                keyboard_setup
+                0x00002682        0x6 obj_split_keyboard/common/keyboard.o
+                0x00002682                keyboard_setup
  .text.keyboard_init
-                0x00002690        0xe obj_split_keyboard/common/keyboard.o
-                0x00002690                keyboard_init
+                0x00002688        0xe obj_split_keyboard/common/keyboard.o
+                0x00002688                keyboard_init
  .text.keyboard_set_leds
-                0x0000269e       0x64 obj_split_keyboard/common/keyboard.o
-                0x0000269e                keyboard_set_leds
+                0x00002696       0x64 obj_split_keyboard/common/keyboard.o
+                0x00002696                keyboard_set_leds
  .text.keyboard_task
-                0x00002702      0x128 obj_split_keyboard/common/keyboard.o
-                0x00002702                keyboard_task
+                0x000026fa      0x128 obj_split_keyboard/common/keyboard.o
+                0x000026fa                keyboard_task
  .text.action_exec
-                0x0000282a       0x64 obj_split_keyboard/common/action.o
-                0x0000282a                action_exec
+                0x00002822       0x64 obj_split_keyboard/common/action.o
+                0x00002822                action_exec
  .text.register_code
-                0x0000288e      0x1a6 obj_split_keyboard/common/action.o
-                0x0000288e                register_code
+                0x00002886      0x1a6 obj_split_keyboard/common/action.o
+                0x00002886                register_code
  .text.unregister_code
-                0x00002a34       0xa4 obj_split_keyboard/common/action.o
-                0x00002a34                unregister_code
+                0x00002a2c       0xa4 obj_split_keyboard/common/action.o
+                0x00002a2c                unregister_code
  .text.register_mods
-                0x00002ad8        0xe obj_split_keyboard/common/action.o
-                0x00002ad8                register_mods
+                0x00002ad0        0xe obj_split_keyboard/common/action.o
+                0x00002ad0                register_mods
  .text.unregister_mods
-                0x00002ae6        0xe obj_split_keyboard/common/action.o
-                0x00002ae6                unregister_mods
+                0x00002ade        0xe obj_split_keyboard/common/action.o
+                0x00002ade                unregister_mods
  .text.process_action
-                0x00002af4      0x50c obj_split_keyboard/common/action.o
-                0x00002af4                process_action
+                0x00002aec      0x50c obj_split_keyboard/common/action.o
+                0x00002aec                process_action
  .text.clear_keyboard_but_mods
-                0x00003000       0x26 obj_split_keyboard/common/action.o
-                0x00003000                clear_keyboard_but_mods
+                0x00002ff8       0x26 obj_split_keyboard/common/action.o
+                0x00002ff8                clear_keyboard_but_mods
  .text.clear_keyboard
-                0x00003026        0xa obj_split_keyboard/common/action.o
-                0x00003026                clear_keyboard
+                0x0000301e        0xa obj_split_keyboard/common/action.o
+                0x0000301e                clear_keyboard
  .text.is_tap_key
-                0x00003030       0x58 obj_split_keyboard/common/action.o
-                0x00003030                is_tap_key
+                0x00003028       0x58 obj_split_keyboard/common/action.o
+                0x00003028                is_tap_key
  .text.debug_event
-                0x00003088       0x1e obj_split_keyboard/common/action.o
-                0x00003088                debug_event
+                0x00003080       0x1e obj_split_keyboard/common/action.o
+                0x00003080                debug_event
  .text.debug_record
-                0x000030a6       0x20 obj_split_keyboard/common/action.o
-                0x000030a6                debug_record
+                0x0000309e       0x20 obj_split_keyboard/common/action.o
+                0x0000309e                debug_record
  .text.debug_waiting_buffer
-                0x000030c6       0x40 obj_split_keyboard/common/action_tapping.o
+                0x000030be       0x40 obj_split_keyboard/common/action_tapping.o
  .text.debug_tapping_key
-                0x00003106       0x1e obj_split_keyboard/common/action_tapping.o
+                0x000030fe       0x1e obj_split_keyboard/common/action_tapping.o
  .text.IS_NOEVENT.isra.0
-                0x00003124       0x26 obj_split_keyboard/common/action_tapping.o
+                0x0000311c       0x26 obj_split_keyboard/common/action_tapping.o
  .text.waiting_buffer_scan_tap
-                0x0000314a       0xe6 obj_split_keyboard/common/action_tapping.o
+                0x00003142       0xe6 obj_split_keyboard/common/action_tapping.o
  .text.process_tapping
-                0x00003230      0x3f8 obj_split_keyboard/common/action_tapping.o
+                0x00003228      0x3f8 obj_split_keyboard/common/action_tapping.o
  .text.action_tapping_process
-                0x00003628      0x17a obj_split_keyboard/common/action_tapping.o
-                0x00003628                action_tapping_process
+                0x00003620      0x17a obj_split_keyboard/common/action_tapping.o
+                0x00003620                action_tapping_process
  .text.action_macro_play
-                0x000037a2      0x104 obj_split_keyboard/common/action_macro.o
-                0x000037a2                action_macro_play
+                0x0000379a      0x104 obj_split_keyboard/common/action_macro.o
+                0x0000379a                action_macro_play
  .text.default_layer_state_set
-                0x000038a6       0x1a obj_split_keyboard/common/action_layer.o
+                0x0000389e       0x1a obj_split_keyboard/common/action_layer.o
  .text.layer_state_set
-                0x000038c0       0x1a obj_split_keyboard/common/action_layer.o
+                0x000038b8       0x1a obj_split_keyboard/common/action_layer.o
  .text.default_layer_debug
-                0x000038da        0x2 obj_split_keyboard/common/action_layer.o
-                0x000038da                default_layer_debug
+                0x000038d2        0x2 obj_split_keyboard/common/action_layer.o
+                0x000038d2                default_layer_debug
  .text.default_layer_set
-                0x000038dc        0x6 obj_split_keyboard/common/action_layer.o
-                0x000038dc                default_layer_set
+                0x000038d4        0x6 obj_split_keyboard/common/action_layer.o
+                0x000038d4                default_layer_set
  .text.default_layer_or
-                0x000038e2       0x26 obj_split_keyboard/common/action_layer.o
-                0x000038e2                default_layer_or
+                0x000038da       0x26 obj_split_keyboard/common/action_layer.o
+                0x000038da                default_layer_or
  .text.default_layer_and
-                0x00003908       0x26 obj_split_keyboard/common/action_layer.o
-                0x00003908                default_layer_and
+                0x00003900       0x26 obj_split_keyboard/common/action_layer.o
+                0x00003900                default_layer_and
  .text.default_layer_xor
-                0x0000392e       0x26 obj_split_keyboard/common/action_layer.o
-                0x0000392e                default_layer_xor
+                0x00003926       0x26 obj_split_keyboard/common/action_layer.o
+                0x00003926                default_layer_xor
  .text.layer_clear
-                0x00003954        0xc obj_split_keyboard/common/action_layer.o
-                0x00003954                layer_clear
+                0x0000394c        0xc obj_split_keyboard/common/action_layer.o
+                0x0000394c                layer_clear
  .text.layer_move
-                0x00003960       0x20 obj_split_keyboard/common/action_layer.o
-                0x00003960                layer_move
+                0x00003958       0x20 obj_split_keyboard/common/action_layer.o
+                0x00003958                layer_move
  .text.layer_on
-                0x00003980       0x38 obj_split_keyboard/common/action_layer.o
-                0x00003980                layer_on
+                0x00003978       0x38 obj_split_keyboard/common/action_layer.o
+                0x00003978                layer_on
  .text.layer_off
-                0x000039b8       0x40 obj_split_keyboard/common/action_layer.o
-                0x000039b8                layer_off
+                0x000039b0       0x40 obj_split_keyboard/common/action_layer.o
+                0x000039b0                layer_off
  .text.layer_invert
-                0x000039f8       0x38 obj_split_keyboard/common/action_layer.o
-                0x000039f8                layer_invert
+                0x000039f0       0x38 obj_split_keyboard/common/action_layer.o
+                0x000039f0                layer_invert
  .text.layer_or
-                0x00003a30       0x26 obj_split_keyboard/common/action_layer.o
-                0x00003a30                layer_or
+                0x00003a28       0x26 obj_split_keyboard/common/action_layer.o
+                0x00003a28                layer_or
  .text.layer_and
-                0x00003a56       0x26 obj_split_keyboard/common/action_layer.o
-                0x00003a56                layer_and
+                0x00003a4e       0x26 obj_split_keyboard/common/action_layer.o
+                0x00003a4e                layer_and
  .text.layer_xor
-                0x00003a7c       0x26 obj_split_keyboard/common/action_layer.o
-                0x00003a7c                layer_xor
+                0x00003a74       0x26 obj_split_keyboard/common/action_layer.o
+                0x00003a74                layer_xor
  .text.layer_debug
-                0x00003aa2        0x2 obj_split_keyboard/common/action_layer.o
-                0x00003aa2                layer_debug
+                0x00003a9a        0x2 obj_split_keyboard/common/action_layer.o
+                0x00003a9a                layer_debug
  .text.layer_switch_get_action
-                0x00003aa4       0x8c obj_split_keyboard/common/action_layer.o
-                0x00003aa4                layer_switch_get_action
+                0x00003a9c       0x8c obj_split_keyboard/common/action_layer.o
+                0x00003a9c                layer_switch_get_action
  .text.get_oneshot_locked_mods
-                0x00003b30        0x6 obj_split_keyboard/common/action_util.o
-                0x00003b30                get_oneshot_locked_mods
+                0x00003b28        0x6 obj_split_keyboard/common/action_util.o
+                0x00003b28                get_oneshot_locked_mods
  .text.set_oneshot_locked_mods
-                0x00003b36        0x6 obj_split_keyboard/common/action_util.o
-                0x00003b36                set_oneshot_locked_mods
+                0x00003b2e        0x6 obj_split_keyboard/common/action_util.o
+                0x00003b2e                set_oneshot_locked_mods
  .text.clear_oneshot_locked_mods
-                0x00003b3c        0x6 obj_split_keyboard/common/action_util.o
-                0x00003b3c                clear_oneshot_locked_mods
+                0x00003b34        0x6 obj_split_keyboard/common/action_util.o
+                0x00003b34                clear_oneshot_locked_mods
  .text.get_oneshot_layer
-                0x00003b42        0xc obj_split_keyboard/common/action_util.o
-                0x00003b42                get_oneshot_layer
+                0x00003b3a        0xc obj_split_keyboard/common/action_util.o
+                0x00003b3a                get_oneshot_layer
  .text.get_oneshot_layer_state
-                0x00003b4e        0x8 obj_split_keyboard/common/action_util.o
-                0x00003b4e                get_oneshot_layer_state
+                0x00003b46        0x8 obj_split_keyboard/common/action_util.o
+                0x00003b46                get_oneshot_layer_state
  .text.set_oneshot_layer
-                0x00003b56       0x14 obj_split_keyboard/common/action_util.o
-                0x00003b56                set_oneshot_layer
+                0x00003b4e       0x14 obj_split_keyboard/common/action_util.o
+                0x00003b4e                set_oneshot_layer
  .text.reset_oneshot_layer
-                0x00003b6a        0x6 obj_split_keyboard/common/action_util.o
-                0x00003b6a                reset_oneshot_layer
+                0x00003b62        0x6 obj_split_keyboard/common/action_util.o
+                0x00003b62                reset_oneshot_layer
  .text.clear_oneshot_layer_state
-                0x00003b70       0x2e obj_split_keyboard/common/action_util.o
-                0x00003b70                clear_oneshot_layer_state
+                0x00003b68       0x2e obj_split_keyboard/common/action_util.o
+                0x00003b68                clear_oneshot_layer_state
  .text.is_oneshot_layer_active
-                0x00003b9e        0xe obj_split_keyboard/common/action_util.o
-                0x00003b9e                is_oneshot_layer_active
- .text.add_key  0x00003bac       0xbc obj_split_keyboard/common/action_util.o
-                0x00003bac                add_key
- .text.del_key  0x00003c68       0x96 obj_split_keyboard/common/action_util.o
-                0x00003c68                del_key
+                0x00003b96        0xe obj_split_keyboard/common/action_util.o
+                0x00003b96                is_oneshot_layer_active
+ .text.add_key  0x00003ba4       0xbc obj_split_keyboard/common/action_util.o
+                0x00003ba4                add_key
+ .text.del_key  0x00003c60       0x96 obj_split_keyboard/common/action_util.o
+                0x00003c60                del_key
  .text.clear_keys
-                0x00003cfe       0x1c obj_split_keyboard/common/action_util.o
-                0x00003cfe                clear_keys
+                0x00003cf6       0x1c obj_split_keyboard/common/action_util.o
+                0x00003cf6                clear_keys
  .text.get_mods
-                0x00003d1a        0x6 obj_split_keyboard/common/action_util.o
-                0x00003d1a                get_mods
+                0x00003d12        0x6 obj_split_keyboard/common/action_util.o
+                0x00003d12                get_mods
  .text.add_mods
-                0x00003d20        0xc obj_split_keyboard/common/action_util.o
-                0x00003d20                add_mods
+                0x00003d18        0xc obj_split_keyboard/common/action_util.o
+                0x00003d18                add_mods
  .text.del_mods
-                0x00003d2c        0xe obj_split_keyboard/common/action_util.o
-                0x00003d2c                del_mods
+                0x00003d24        0xe obj_split_keyboard/common/action_util.o
+                0x00003d24                del_mods
  .text.clear_mods
-                0x00003d3a        0x6 obj_split_keyboard/common/action_util.o
-                0x00003d3a                clear_mods
+                0x00003d32        0x6 obj_split_keyboard/common/action_util.o
+                0x00003d32                clear_mods
  .text.add_weak_mods
-                0x00003d40        0xc obj_split_keyboard/common/action_util.o
-                0x00003d40                add_weak_mods
+                0x00003d38        0xc obj_split_keyboard/common/action_util.o
+                0x00003d38                add_weak_mods
  .text.del_weak_mods
-                0x00003d4c        0xe obj_split_keyboard/common/action_util.o
-                0x00003d4c                del_weak_mods
+                0x00003d44        0xe obj_split_keyboard/common/action_util.o
+                0x00003d44                del_weak_mods
  .text.clear_weak_mods
-                0x00003d5a        0x6 obj_split_keyboard/common/action_util.o
-                0x00003d5a                clear_weak_mods
+                0x00003d52        0x6 obj_split_keyboard/common/action_util.o
+                0x00003d52                clear_weak_mods
  .text.set_oneshot_mods
-                0x00003d60        0x6 obj_split_keyboard/common/action_util.o
-                0x00003d60                set_oneshot_mods
+                0x00003d58        0x6 obj_split_keyboard/common/action_util.o
+                0x00003d58                set_oneshot_mods
  .text.clear_oneshot_mods
-                0x00003d66        0x6 obj_split_keyboard/common/action_util.o
-                0x00003d66                clear_oneshot_mods
+                0x00003d5e        0x6 obj_split_keyboard/common/action_util.o
+                0x00003d5e                clear_oneshot_mods
  .text.has_anykey
-                0x00003d6c       0x26 obj_split_keyboard/common/action_util.o
-                0x00003d6c                has_anykey
+                0x00003d64       0x26 obj_split_keyboard/common/action_util.o
+                0x00003d64                has_anykey
  .text.send_keyboard_report
-                0x00003d92       0x50 obj_split_keyboard/common/action_util.o
-                0x00003d92                send_keyboard_report
+                0x00003d8a       0x50 obj_split_keyboard/common/action_util.o
+                0x00003d8a                send_keyboard_report
  .text.print_set_sendchar
-                0x00003de2        0xa obj_split_keyboard/common/print.o
-                0x00003de2                print_set_sendchar
- .text.bitrev   0x00003dec       0x38 obj_split_keyboard/common/util.o
-                0x00003dec                bitrev
+                0x00003dda        0xa obj_split_keyboard/common/print.o
+                0x00003dda                print_set_sendchar
+ .text.bitrev   0x00003de4       0x38 obj_split_keyboard/common/util.o
+                0x00003de4                bitrev
  .text.bitrev16
-                0x00003e24       0x30 obj_split_keyboard/common/util.o
-                0x00003e24                bitrev16
+                0x00003e1c       0x30 obj_split_keyboard/common/util.o
+                0x00003e1c                bitrev16
  .text.suspend_power_down
-                0x00003e54       0x4c obj_split_keyboard/common/avr/suspend.o
-                0x00003e54                suspend_power_down
+                0x00003e4c       0x4c obj_split_keyboard/common/avr/suspend.o
+                0x00003e4c                suspend_power_down
  .text.matrix_power_up
-                0x00003ea0        0x2 obj_split_keyboard/common/avr/suspend.o
-                0x00003ea0                matrix_power_up
+                0x00003e98        0x2 obj_split_keyboard/common/avr/suspend.o
+                0x00003e98                matrix_power_up
  .text.matrix_power_down
-                0x00003ea2        0x2 obj_split_keyboard/common/avr/suspend.o
-                0x00003ea2                matrix_power_down
+                0x00003e9a        0x2 obj_split_keyboard/common/avr/suspend.o
+                0x00003e9a                matrix_power_down
  .text.suspend_wakeup_condition
-                0x00003ea4       0x28 obj_split_keyboard/common/avr/suspend.o
-                0x00003ea4                suspend_wakeup_condition
+                0x00003e9c       0x28 obj_split_keyboard/common/avr/suspend.o
+                0x00003e9c                suspend_wakeup_condition
  .text.suspend_wakeup_init
-                0x00003ecc        0x6 obj_split_keyboard/common/avr/suspend.o
-                0x00003ecc                suspend_wakeup_init
+                0x00003ec4        0x6 obj_split_keyboard/common/avr/suspend.o
+                0x00003ec4                suspend_wakeup_init
  .text.timer_init
-                0x00003ed2       0x12 obj_split_keyboard/common/avr/timer.o
-                0x00003ed2                timer_init
+                0x00003eca       0x12 obj_split_keyboard/common/avr/timer.o
+                0x00003eca                timer_init
  .text.timer_read
-                0x00003ee4       0x1a obj_split_keyboard/common/avr/timer.o
-                0x00003ee4                timer_read
+                0x00003edc       0x1a obj_split_keyboard/common/avr/timer.o
+                0x00003edc                timer_read
  .text.timer_elapsed
-                0x00003efe       0x4c obj_split_keyboard/common/avr/timer.o
-                0x00003efe                timer_elapsed
+                0x00003ef6       0x4c obj_split_keyboard/common/avr/timer.o
+                0x00003ef6                timer_elapsed
  .text.__vector_21
-                0x00003f4a       0x4a obj_split_keyboard/common/avr/timer.o
-                0x00003f4a                __vector_21
+                0x00003f42       0x4a obj_split_keyboard/common/avr/timer.o
+                0x00003f42                __vector_21
  .text.bootloader_jump
-                0x00003f94       0x46 obj_split_keyboard/common/avr/bootloader.o
-                0x00003f94                bootloader_jump
+                0x00003f8c       0x46 obj_split_keyboard/common/avr/bootloader.o
+                0x00003f8c                bootloader_jump
  .text.action_for_key
-                0x00003fda       0x38 obj_split_keyboard/common/actionmap.o
-                0x00003fda                action_for_key
+                0x00003fd2       0x38 obj_split_keyboard/common/actionmap.o
+                0x00003fd2                action_for_key
  .text.action_get_macro
-                0x00004012        0x6 obj_split_keyboard/common/actionmap.o
-                0x00004012                action_get_macro
+                0x0000400a        0x6 obj_split_keyboard/common/actionmap.o
+                0x0000400a                action_get_macro
  .text.scan_key
-                0x00004018       0x8a obj_split_keyboard/common/bootmagic.o
+                0x00004010       0x8a obj_split_keyboard/common/bootmagic.o
  .text.bootmagic_scan_key
-                0x000040a2       0x22 obj_split_keyboard/common/bootmagic.o
-                0x000040a2                bootmagic_scan_key
+                0x0000409a       0x22 obj_split_keyboard/common/bootmagic.o
+                0x0000409a                bootmagic_scan_key
  .text.bootmagic
-                0x000040c4      0x280 obj_split_keyboard/common/bootmagic.o
-                0x000040c4                bootmagic
+                0x000040bc      0x280 obj_split_keyboard/common/bootmagic.o
+                0x000040bc                bootmagic
  .text.eeconfig_init
-                0x00004344       0x36 obj_split_keyboard/common/avr/eeconfig.o
-                0x00004344                eeconfig_init
+                0x0000433c       0x36 obj_split_keyboard/common/avr/eeconfig.o
+                0x0000433c                eeconfig_init
  .text.eeconfig_is_enabled
-                0x0000437a       0x18 obj_split_keyboard/common/avr/eeconfig.o
-                0x0000437a                eeconfig_is_enabled
+                0x00004372       0x18 obj_split_keyboard/common/avr/eeconfig.o
+                0x00004372                eeconfig_is_enabled
  .text.eeconfig_read_debug
-                0x00004392        0xa obj_split_keyboard/common/avr/eeconfig.o
-                0x00004392                eeconfig_read_debug
+                0x0000438a        0xa obj_split_keyboard/common/avr/eeconfig.o
+                0x0000438a                eeconfig_read_debug
  .text.eeconfig_write_debug
-                0x0000439c        0xc obj_split_keyboard/common/avr/eeconfig.o
-                0x0000439c                eeconfig_write_debug
+                0x00004394        0xc obj_split_keyboard/common/avr/eeconfig.o
+                0x00004394                eeconfig_write_debug
  .text.eeconfig_read_default_layer
-                0x000043a8        0xa obj_split_keyboard/common/avr/eeconfig.o
-                0x000043a8                eeconfig_read_default_layer
+                0x000043a0        0xa obj_split_keyboard/common/avr/eeconfig.o
+                0x000043a0                eeconfig_read_default_layer
  .text.eeconfig_write_default_layer
-                0x000043b2        0xc obj_split_keyboard/common/avr/eeconfig.o
-                0x000043b2                eeconfig_write_default_layer
+                0x000043aa        0xc obj_split_keyboard/common/avr/eeconfig.o
+                0x000043aa                eeconfig_write_default_layer
  .text.eeconfig_read_keymap
-                0x000043be        0xa obj_split_keyboard/common/avr/eeconfig.o
-                0x000043be                eeconfig_read_keymap
+                0x000043b6        0xa obj_split_keyboard/common/avr/eeconfig.o
+                0x000043b6                eeconfig_read_keymap
  .text.eeconfig_write_keymap
-                0x000043c8        0xc obj_split_keyboard/common/avr/eeconfig.o
-                0x000043c8                eeconfig_write_keymap
+                0x000043c0        0xc obj_split_keyboard/common/avr/eeconfig.o
+                0x000043c0                eeconfig_write_keymap
  .text.move_unit
-                0x000043d4       0xb8 obj_split_keyboard/common/mousekey.o
+                0x000043cc       0xb8 obj_split_keyboard/common/mousekey.o
  .text.wheel_unit
-                0x0000448c       0x76 obj_split_keyboard/common/mousekey.o
+                0x00004484       0x76 obj_split_keyboard/common/mousekey.o
  .text.mousekey_on
-                0x00004502       0xd4 obj_split_keyboard/common/mousekey.o
-                0x00004502                mousekey_on
+                0x000044fa       0xd4 obj_split_keyboard/common/mousekey.o
+                0x000044fa                mousekey_on
  .text.mousekey_off
-                0x000045d6      0x10c obj_split_keyboard/common/mousekey.o
-                0x000045d6                mousekey_off
+                0x000045ce      0x10c obj_split_keyboard/common/mousekey.o
+                0x000045ce                mousekey_off
  .text.mousekey_send
-                0x000046e2      0x1a0 obj_split_keyboard/common/mousekey.o
-                0x000046e2                mousekey_send
+                0x000046da      0x1a0 obj_split_keyboard/common/mousekey.o
+                0x000046da                mousekey_send
  .text.mousekey_task
-                0x00004882      0x14e obj_split_keyboard/common/mousekey.o
-                0x00004882                mousekey_task
+                0x0000487a      0x14e obj_split_keyboard/common/mousekey.o
+                0x0000487a                mousekey_task
  .text.mousekey_clear
-                0x000049d0       0x18 obj_split_keyboard/common/mousekey.o
-                0x000049d0                mousekey_clear
+                0x000049c8       0x18 obj_split_keyboard/common/mousekey.o
+                0x000049c8                mousekey_clear
  .text.command_console_help
-                0x000049e8        0xa obj_split_keyboard/common/command.o
+                0x000049e0        0xa obj_split_keyboard/common/command.o
  .text.mousekey_console_help
-                0x000049f2       0x4a obj_split_keyboard/common/command.o
+                0x000049ea       0x4a obj_split_keyboard/common/command.o
  .text.mousekey_param_inc
-                0x00004a3c      0x1ca obj_split_keyboard/common/command.o
+                0x00004a34      0x1ca obj_split_keyboard/common/command.o
  .text.mousekey_param_dec
-                0x00004c06      0x182 obj_split_keyboard/common/command.o
+                0x00004bfe      0x182 obj_split_keyboard/common/command.o
  .text.switch_default_layer
-                0x00004d88       0x62 obj_split_keyboard/common/command.o
+                0x00004d80       0x62 obj_split_keyboard/common/command.o
  .text.command_common
-                0x00004dea      0x6ba obj_split_keyboard/common/command.o
+                0x00004de2      0x6ba obj_split_keyboard/common/command.o
  .text.command_extra
-                0x000054a4        0x4 obj_split_keyboard/common/command.o
-                0x000054a4                command_extra
+                0x0000549c        0x4 obj_split_keyboard/common/command.o
+                0x0000549c                command_extra
  .text.command_console_extra
-                0x000054a8        0x4 obj_split_keyboard/common/command.o
-                0x000054a8                command_console_extra
+                0x000054a0        0x4 obj_split_keyboard/common/command.o
+                0x000054a0                command_console_extra
  .text.command_proc
-                0x000054ac      0x350 obj_split_keyboard/common/command.o
-                0x000054ac                command_proc
+                0x000054a4      0x350 obj_split_keyboard/common/command.o
+                0x000054a4                command_proc
  .text.sleep_led_init
-                0x000057fc       0x24 obj_split_keyboard/common/sleep_led.o
-                0x000057fc                sleep_led_init
+                0x000057f4       0x24 obj_split_keyboard/common/sleep_led.o
+                0x000057f4                sleep_led_init
  .text.sleep_led_enable
-                0x00005820        0xc obj_split_keyboard/common/sleep_led.o
-                0x00005820                sleep_led_enable
+                0x00005818        0xc obj_split_keyboard/common/sleep_led.o
+                0x00005818                sleep_led_enable
  .text.sleep_led_disable
-                0x0000582c        0xc obj_split_keyboard/common/sleep_led.o
-                0x0000582c                sleep_led_disable
+                0x00005824        0xc obj_split_keyboard/common/sleep_led.o
+                0x00005824                sleep_led_disable
  .text.sleep_led_toggle
-                0x00005838        0xe obj_split_keyboard/common/sleep_led.o
-                0x00005838                sleep_led_toggle
+                0x00005830        0xe obj_split_keyboard/common/sleep_led.o
+                0x00005830                sleep_led_toggle
  .text.__vector_17
-                0x00005846       0x7e obj_split_keyboard/common/sleep_led.o
-                0x00005846                __vector_17
+                0x0000583e       0x7e obj_split_keyboard/common/sleep_led.o
+                0x0000583e                __vector_17
  .text.avr-libc.fplib
-                0x000058c4        0xa c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x000058c4                __fixsfsi
+                0x000058bc        0xa c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x000058bc                __fixsfsi
  .text.avr-libc.fplib
-                0x000058ce       0x58 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x000058ce                __fixunssfsi
+                0x000058c6       0x58 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x000058c6                __fixunssfsi
  .text.avr-libc.fplib
-                0x00005926       0x7a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00005926                __floatunsisf
-                0x0000592a                __floatsisf
+                0x0000591e       0x7a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x0000591e                __floatunsisf
+                0x00005922                __floatsisf
  .text.avr-libc.fplib
-                0x000059a0       0x44 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x000059a0                __fp_split3
-                0x000059b0                __fp_splitA
+                0x00005998       0x44 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00005998                __fp_split3
+                0x000059a8                __fp_splitA
  .text.avr-libc.fplib
-                0x000059e4        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x000059e4                __fp_zero
-                0x000059e6                __fp_szero
+                0x000059dc        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x000059dc                __fp_zero
+                0x000059de                __fp_szero
  .text.avr-libc.fplib
-                0x000059f2        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x000059f2                __mulsf3
+                0x000059ea        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x000059ea                __mulsf3
  .text.avr-libc.fplib
-                0x000059f6       0xc2 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x00005a0a                __mulsf3x
-                0x00005a0e                __mulsf3_pse
+                0x000059ee       0xc2 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00005a02                __mulsf3x
+                0x00005a06                __mulsf3_pse
  .text.avr-libc.fplib
-                0x00005ab8        0xc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00005ab8                __fp_inf
+                0x00005ab0        0xc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00005ab0                __fp_inf
  .text.avr-libc.fplib
-                0x00005ac4        0x6 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00005ac4                __fp_nan
+                0x00005abc        0x6 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00005abc                __fp_nan
  .text.avr-libc.fplib
-                0x00005aca        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00005aca                __fp_pscA
+                0x00005ac2        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00005ac2                __fp_pscA
  .text.avr-libc.fplib
-                0x00005ad8        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00005ad8                __fp_pscB
+                0x00005ad0        0xe c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00005ad0                __fp_pscB
  .text.avr-libc.fplib
-                0x00005ae6       0x22 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00005ae6                __fp_round
- .text.libgcc   0x00005b08       0x18 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
-                0x00005b08                __udivmodqi4
- .text.libgcc   0x00005b20       0x26 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
-                0x00005b20                _div
-                0x00005b20                __divmodhi4
- .text.libgcc   0x00005b46       0x28 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00005b46                __udivmodhi4
+                0x00005ade       0x22 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00005ade                __fp_round
+ .text.libgcc   0x00005b00       0x18 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
+                0x00005b00                __udivmodqi4
+ .text.libgcc   0x00005b18       0x26 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
+                0x00005b18                _div
+                0x00005b18                __divmodhi4
+ .text.libgcc   0x00005b3e       0x28 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00005b3e                __udivmodhi4
  .text.avr-libc
-                0x00005b6e       0x10 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32u4.o)
-                0x00005b6e                __eerd_byte_m32u4
+                0x00005b66       0x10 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32u4.o)
+                0x00005b66                __eerd_byte_m32u4
  .text.avr-libc
-                0x00005b7e        0xc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_word_atmega32u4.o)
-                0x00005b7e                __eerd_word_m32u4
+                0x00005b76        0xc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_word_atmega32u4.o)
+                0x00005b76                __eerd_word_m32u4
  .text.avr-libc
-                0x00005b8a       0x1c c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32u4.o)
-                0x00005b8a                __eewr_byte_m32u4
-                0x00005b8c                __eewr_r18_m32u4
+                0x00005b82       0x1c c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32u4.o)
+                0x00005b82                __eewr_byte_m32u4
+                0x00005b84                __eewr_r18_m32u4
  .text.avr-libc
-                0x00005ba6        0xa c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eewr_word_atmega32u4.o)
-                0x00005ba6                __eewr_word_m32u4
+                0x00005b9e        0xa c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eewr_word_atmega32u4.o)
+                0x00005b9e                __eewr_word_m32u4
  .text.avr-libc
-                0x00005bb0       0x20 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_block_atmega32u4.o)
-                0x00005bb0                __eerd_block_m32u4
-                0x00005bb4                __eerd_blraw_m32u4
-                0x00005bd0                . = ALIGN (0x2)
+                0x00005ba8       0x20 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_block_atmega32u4.o)
+                0x00005ba8                __eerd_block_m32u4
+                0x00005bac                __eerd_blraw_m32u4
+                0x00005bc8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00005bd0        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
-                0x00005bd0                _exit
-                0x00005bd0                exit
+ .fini9         0x00005bc8        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+                0x00005bc8                _exit
+                0x00005bc8                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1198,11 +1198,11 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00005bd0        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00005bc8        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00005bd4                _etext = .
+                0x00005bcc                _etext = .
 
-.data           0x00800100       0x4a load address 0x00005bd4
+.data           0x00800100       0x4a load address 0x00005bcc
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
@@ -1436,8 +1436,8 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
  COMMON         0x00800245        0x1 obj_split_keyboard/common/keyboard.o
                 0x00800245                keymap_config
                 0x00800246                PROVIDE (__bss_end, .)
-                0x00005bd4                __data_load_start = LOADADDR (.data)
-                0x00005c1e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00005bcc                __data_load_start = LOADADDR (.data)
+                0x00005c16                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800246        0x4
                 0x00800246                PROVIDE (__noinit_start, .)
@@ -1506,9 +1506,9 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
  .stab          0x000022d4      0x108 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(eerd_block_atmega32u4.o)
                                 0x114 (size before relaxing)
 
-.stabstr        0x00000000      0x7e9
+.stabstr        0x00000000      0x7fb
  *(.stabstr)
- .stabstr       0x00000000      0x7e9 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
+ .stabstr       0x00000000      0x7fb c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
 
 .stab.excl
  *(.stab.excl)
@@ -1627,156 +1627,156 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xf15a
+.debug_info     0x00000000     0xf158
  *(.debug_info)
  .debug_info    0x00000000      0x926 obj_split_keyboard/actionmap_plain.o
- .debug_info    0x00000926      0x80f obj_split_keyboard/matrix.o
- .debug_info    0x00001135      0x36b obj_split_keyboard/i2c.o
- .debug_info    0x000014a0      0x649 obj_split_keyboard/serial.o
- .debug_info    0x00001ae9      0x1d7 obj_split_keyboard/split-util.o
- .debug_info    0x00001cc0       0x90 obj_split_keyboard/led.o
- .debug_info    0x00001d50     0x11ec obj_split_keyboard/protocol/lufa/lufa.o
- .debug_info    0x00002f3c      0x8bd obj_split_keyboard/protocol/lufa/descriptor.o
- .debug_info    0x000037f9      0x6fc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_info    0x00003ef5       0xca obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_info    0x00003fbf     0x15d4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_info    0x00005593      0x618 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_info    0x00005bab       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_info    0x00005c09       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_info    0x00005c67       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_info    0x00005cc5      0x487 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_info    0x0000614c      0x707 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_info    0x00006853      0x382 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_info    0x00006bd5      0x98c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_info    0x00007561       0x77 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
- .debug_info    0x000075d8       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
- .debug_info    0x00007636      0x25b obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
- .debug_info    0x00007891      0x491 obj_split_keyboard/common/host.o
- .debug_info    0x00007d22      0x388 obj_split_keyboard/common/keyboard.o
- .debug_info    0x000080aa      0xf2d obj_split_keyboard/common/action.o
- .debug_info    0x00008fd7      0xb62 obj_split_keyboard/common/action_tapping.o
- .debug_info    0x00009b39      0x797 obj_split_keyboard/common/action_macro.o
- .debug_info    0x0000a2d0      0x64b obj_split_keyboard/common/action_layer.o
- .debug_info    0x0000a91b      0x844 obj_split_keyboard/common/action_util.o
- .debug_info    0x0000b15f       0xe6 obj_split_keyboard/common/print.o
- .debug_info    0x0000b245      0x104 obj_split_keyboard/common/debug.o
- .debug_info    0x0000b349      0x262 obj_split_keyboard/common/util.o
- .debug_info    0x0000b5ab      0x1d7 obj_split_keyboard/common/avr/suspend.o
- .debug_info    0x0000b782      0x207 obj_split_keyboard/common/avr/timer.o
- .debug_info    0x0000b989      0x18b obj_split_keyboard/common/avr/bootloader.o
- .debug_info    0x0000bb14      0x582 obj_split_keyboard/common/actionmap.o
- .debug_info    0x0000c096      0xb68 obj_split_keyboard/common/bootmagic.o
- .debug_info    0x0000cbfe      0x199 obj_split_keyboard/common/avr/eeconfig.o
- .debug_info    0x0000cd97      0x764 obj_split_keyboard/common/mousekey.o
- .debug_info    0x0000d4fb     0x1583 obj_split_keyboard/common/command.o
- .debug_info    0x0000ea7e      0x1ae obj_split_keyboard/common/sleep_led.o
- .debug_info    0x0000ec2c       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
- .debug_info    0x0000ed09       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
- .debug_info    0x0000ede6       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_info    0x0000eec3       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_info    0x0000efa0       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
- .debug_info    0x0000f07d       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_info    0x00000926      0x80d obj_split_keyboard/matrix.o
+ .debug_info    0x00001133      0x36b obj_split_keyboard/i2c.o
+ .debug_info    0x0000149e      0x649 obj_split_keyboard/serial.o
+ .debug_info    0x00001ae7      0x1d7 obj_split_keyboard/split-util.o
+ .debug_info    0x00001cbe       0x90 obj_split_keyboard/led.o
+ .debug_info    0x00001d4e     0x11ec obj_split_keyboard/protocol/lufa/lufa.o
+ .debug_info    0x00002f3a      0x8bd obj_split_keyboard/protocol/lufa/descriptor.o
+ .debug_info    0x000037f7      0x6fc obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_info    0x00003ef3       0xca obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_info    0x00003fbd     0x15d4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_info    0x00005591      0x618 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_info    0x00005ba9       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_info    0x00005c07       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_info    0x00005c65       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_info    0x00005cc3      0x487 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_info    0x0000614a      0x707 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_info    0x00006851      0x382 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_info    0x00006bd3      0x98c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_info    0x0000755f       0x77 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
+ .debug_info    0x000075d6       0x5e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
+ .debug_info    0x00007634      0x25b obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_info    0x0000788f      0x491 obj_split_keyboard/common/host.o
+ .debug_info    0x00007d20      0x388 obj_split_keyboard/common/keyboard.o
+ .debug_info    0x000080a8      0xf2d obj_split_keyboard/common/action.o
+ .debug_info    0x00008fd5      0xb62 obj_split_keyboard/common/action_tapping.o
+ .debug_info    0x00009b37      0x797 obj_split_keyboard/common/action_macro.o
+ .debug_info    0x0000a2ce      0x64b obj_split_keyboard/common/action_layer.o
+ .debug_info    0x0000a919      0x844 obj_split_keyboard/common/action_util.o
+ .debug_info    0x0000b15d       0xe6 obj_split_keyboard/common/print.o
+ .debug_info    0x0000b243      0x104 obj_split_keyboard/common/debug.o
+ .debug_info    0x0000b347      0x262 obj_split_keyboard/common/util.o
+ .debug_info    0x0000b5a9      0x1d7 obj_split_keyboard/common/avr/suspend.o
+ .debug_info    0x0000b780      0x207 obj_split_keyboard/common/avr/timer.o
+ .debug_info    0x0000b987      0x18b obj_split_keyboard/common/avr/bootloader.o
+ .debug_info    0x0000bb12      0x582 obj_split_keyboard/common/actionmap.o
+ .debug_info    0x0000c094      0xb68 obj_split_keyboard/common/bootmagic.o
+ .debug_info    0x0000cbfc      0x199 obj_split_keyboard/common/avr/eeconfig.o
+ .debug_info    0x0000cd95      0x764 obj_split_keyboard/common/mousekey.o
+ .debug_info    0x0000d4f9     0x1583 obj_split_keyboard/common/command.o
+ .debug_info    0x0000ea7c      0x1ae obj_split_keyboard/common/sleep_led.o
+ .debug_info    0x0000ec2a       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_info    0x0000ed07       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
+ .debug_info    0x0000ede4       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_info    0x0000eec1       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_info    0x0000ef9e       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_info    0x0000f07b       0xdd c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000     0x3b4b
+.debug_abbrev   0x00000000     0x3b5a
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1ba obj_split_keyboard/actionmap_plain.o
- .debug_abbrev  0x000001ba      0x302 obj_split_keyboard/matrix.o
- .debug_abbrev  0x000004bc      0x17b obj_split_keyboard/i2c.o
- .debug_abbrev  0x00000637      0x21a obj_split_keyboard/serial.o
- .debug_abbrev  0x00000851      0x142 obj_split_keyboard/split-util.o
- .debug_abbrev  0x00000993       0x5d obj_split_keyboard/led.o
- .debug_abbrev  0x000009f0      0x3d4 obj_split_keyboard/protocol/lufa/lufa.o
- .debug_abbrev  0x00000dc4      0x185 obj_split_keyboard/protocol/lufa/descriptor.o
- .debug_abbrev  0x00000f49      0x1ec obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_abbrev  0x00001135       0x7d obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_abbrev  0x000011b2      0x1c9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_abbrev  0x0000137b      0x20e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_abbrev  0x00001589       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_abbrev  0x000015b3       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_abbrev  0x000015dd       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_abbrev  0x00001607      0x135 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_abbrev  0x0000173c      0x1e9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_abbrev  0x00001925      0x155 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_abbrev  0x00001a7a      0x234 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_abbrev  0x00001cae       0x41 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
- .debug_abbrev  0x00001cef       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
- .debug_abbrev  0x00001d19      0x15c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
- .debug_abbrev  0x00001e75      0x18e obj_split_keyboard/common/host.o
- .debug_abbrev  0x00002003      0x15a obj_split_keyboard/common/keyboard.o
- .debug_abbrev  0x0000215d      0x254 obj_split_keyboard/common/action.o
- .debug_abbrev  0x000023b1      0x251 obj_split_keyboard/common/action_tapping.o
- .debug_abbrev  0x00002602      0x145 obj_split_keyboard/common/action_macro.o
- .debug_abbrev  0x00002747      0x18d obj_split_keyboard/common/action_layer.o
- .debug_abbrev  0x000028d4      0x2ce obj_split_keyboard/common/action_util.o
- .debug_abbrev  0x00002ba2       0x94 obj_split_keyboard/common/print.o
- .debug_abbrev  0x00002c36       0x8b obj_split_keyboard/common/debug.o
- .debug_abbrev  0x00002cc1       0xa0 obj_split_keyboard/common/util.o
- .debug_abbrev  0x00002d61      0x11a obj_split_keyboard/common/avr/suspend.o
- .debug_abbrev  0x00002e7b      0x120 obj_split_keyboard/common/avr/timer.o
- .debug_abbrev  0x00002f9b      0x10b obj_split_keyboard/common/avr/bootloader.o
- .debug_abbrev  0x000030a6      0x194 obj_split_keyboard/common/actionmap.o
- .debug_abbrev  0x0000323a      0x1ec obj_split_keyboard/common/bootmagic.o
- .debug_abbrev  0x00003426       0xa0 obj_split_keyboard/common/avr/eeconfig.o
- .debug_abbrev  0x000034c6      0x1da obj_split_keyboard/common/mousekey.o
- .debug_abbrev  0x000036a0      0x32e obj_split_keyboard/common/command.o
- .debug_abbrev  0x000039ce      0x105 obj_split_keyboard/common/sleep_led.o
- .debug_abbrev  0x00003ad3       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
- .debug_abbrev  0x00003ae7       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
- .debug_abbrev  0x00003afb       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_abbrev  0x00003b0f       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_abbrev  0x00003b23       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
- .debug_abbrev  0x00003b37       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x000001ba      0x311 obj_split_keyboard/matrix.o
+ .debug_abbrev  0x000004cb      0x17b obj_split_keyboard/i2c.o
+ .debug_abbrev  0x00000646      0x21a obj_split_keyboard/serial.o
+ .debug_abbrev  0x00000860      0x142 obj_split_keyboard/split-util.o
+ .debug_abbrev  0x000009a2       0x5d obj_split_keyboard/led.o
+ .debug_abbrev  0x000009ff      0x3d4 obj_split_keyboard/protocol/lufa/lufa.o
+ .debug_abbrev  0x00000dd3      0x185 obj_split_keyboard/protocol/lufa/descriptor.o
+ .debug_abbrev  0x00000f58      0x1ec obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_abbrev  0x00001144       0x7d obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_abbrev  0x000011c1      0x1c9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_abbrev  0x0000138a      0x20e obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_abbrev  0x00001598       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_abbrev  0x000015c2       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_abbrev  0x000015ec       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_abbrev  0x00001616      0x135 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_abbrev  0x0000174b      0x1e9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_abbrev  0x00001934      0x155 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_abbrev  0x00001a89      0x234 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_abbrev  0x00001cbd       0x41 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
+ .debug_abbrev  0x00001cfe       0x2a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
+ .debug_abbrev  0x00001d28      0x15c obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_abbrev  0x00001e84      0x18e obj_split_keyboard/common/host.o
+ .debug_abbrev  0x00002012      0x15a obj_split_keyboard/common/keyboard.o
+ .debug_abbrev  0x0000216c      0x254 obj_split_keyboard/common/action.o
+ .debug_abbrev  0x000023c0      0x251 obj_split_keyboard/common/action_tapping.o
+ .debug_abbrev  0x00002611      0x145 obj_split_keyboard/common/action_macro.o
+ .debug_abbrev  0x00002756      0x18d obj_split_keyboard/common/action_layer.o
+ .debug_abbrev  0x000028e3      0x2ce obj_split_keyboard/common/action_util.o
+ .debug_abbrev  0x00002bb1       0x94 obj_split_keyboard/common/print.o
+ .debug_abbrev  0x00002c45       0x8b obj_split_keyboard/common/debug.o
+ .debug_abbrev  0x00002cd0       0xa0 obj_split_keyboard/common/util.o
+ .debug_abbrev  0x00002d70      0x11a obj_split_keyboard/common/avr/suspend.o
+ .debug_abbrev  0x00002e8a      0x120 obj_split_keyboard/common/avr/timer.o
+ .debug_abbrev  0x00002faa      0x10b obj_split_keyboard/common/avr/bootloader.o
+ .debug_abbrev  0x000030b5      0x194 obj_split_keyboard/common/actionmap.o
+ .debug_abbrev  0x00003249      0x1ec obj_split_keyboard/common/bootmagic.o
+ .debug_abbrev  0x00003435       0xa0 obj_split_keyboard/common/avr/eeconfig.o
+ .debug_abbrev  0x000034d5      0x1da obj_split_keyboard/common/mousekey.o
+ .debug_abbrev  0x000036af      0x32e obj_split_keyboard/common/command.o
+ .debug_abbrev  0x000039dd      0x105 obj_split_keyboard/common/sleep_led.o
+ .debug_abbrev  0x00003ae2       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_abbrev  0x00003af6       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x00003b0a       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_abbrev  0x00003b1e       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_abbrev  0x00003b32       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x00003b46       0x14 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
 
-.debug_line     0x00000000     0x67bc
+.debug_line     0x00000000     0x67b8
  *(.debug_line)
  .debug_line    0x00000000      0x266 obj_split_keyboard/actionmap_plain.o
- .debug_line    0x00000266      0x374 obj_split_keyboard/matrix.o
- .debug_line    0x000005da      0x1f3 obj_split_keyboard/i2c.o
- .debug_line    0x000007cd      0x2e8 obj_split_keyboard/serial.o
- .debug_line    0x00000ab5      0x183 obj_split_keyboard/split-util.o
- .debug_line    0x00000c38       0xa5 obj_split_keyboard/led.o
- .debug_line    0x00000cdd      0x7a2 obj_split_keyboard/protocol/lufa/lufa.o
- .debug_line    0x0000147f      0x256 obj_split_keyboard/protocol/lufa/descriptor.o
- .debug_line    0x000016d5      0x2b9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_line    0x0000198e      0x179 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_line    0x00001b07      0xd17 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_line    0x0000281e      0x43f obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_line    0x00002c5d       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_line    0x00002c77       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_line    0x00002c91       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_line    0x00002cab      0x345 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_line    0x00002ff0      0x4c2 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_line    0x000034b2      0x1e1 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_line    0x00003693      0x3be obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_line    0x00003a51       0x72 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
- .debug_line    0x00003ac3       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
- .debug_line    0x00003add      0x1da obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
- .debug_line    0x00003cb7      0x1e5 obj_split_keyboard/common/host.o
- .debug_line    0x00003e9c      0x1cf obj_split_keyboard/common/keyboard.o
- .debug_line    0x0000406b      0x3c5 obj_split_keyboard/common/action.o
- .debug_line    0x00004430      0x29a obj_split_keyboard/common/action_tapping.o
- .debug_line    0x000046ca      0x1db obj_split_keyboard/common/action_macro.o
- .debug_line    0x000048a5      0x21c obj_split_keyboard/common/action_layer.o
- .debug_line    0x00004ac1      0x3a5 obj_split_keyboard/common/action_util.o
- .debug_line    0x00004e66       0xe5 obj_split_keyboard/common/print.o
- .debug_line    0x00004f4b       0xb8 obj_split_keyboard/common/debug.o
- .debug_line    0x00005003      0x1ca obj_split_keyboard/common/util.o
- .debug_line    0x000051cd      0x1c9 obj_split_keyboard/common/avr/suspend.o
- .debug_line    0x00005396      0x184 obj_split_keyboard/common/avr/timer.o
- .debug_line    0x0000551a      0x1b1 obj_split_keyboard/common/avr/bootloader.o
- .debug_line    0x000056cb      0x178 obj_split_keyboard/common/actionmap.o
- .debug_line    0x00005843      0x2a3 obj_split_keyboard/common/bootmagic.o
- .debug_line    0x00005ae6      0x15a obj_split_keyboard/common/avr/eeconfig.o
- .debug_line    0x00005c40      0x363 obj_split_keyboard/common/mousekey.o
- .debug_line    0x00005fa3      0x39b obj_split_keyboard/common/command.o
- .debug_line    0x0000633e      0x112 obj_split_keyboard/common/sleep_led.o
- .debug_line    0x00006450       0x92 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
- .debug_line    0x000064e2       0x99 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
- .debug_line    0x0000657b       0x88 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_line    0x00006603       0x91 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_line    0x00006694       0x8e c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
- .debug_line    0x00006722       0x9a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_line    0x00000266      0x370 obj_split_keyboard/matrix.o
+ .debug_line    0x000005d6      0x1f3 obj_split_keyboard/i2c.o
+ .debug_line    0x000007c9      0x2e8 obj_split_keyboard/serial.o
+ .debug_line    0x00000ab1      0x183 obj_split_keyboard/split-util.o
+ .debug_line    0x00000c34       0xa5 obj_split_keyboard/led.o
+ .debug_line    0x00000cd9      0x7a2 obj_split_keyboard/protocol/lufa/lufa.o
+ .debug_line    0x0000147b      0x256 obj_split_keyboard/protocol/lufa/descriptor.o
+ .debug_line    0x000016d1      0x2b9 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_line    0x0000198a      0x179 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_line    0x00001b03      0xd17 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_line    0x0000281a      0x43f obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_line    0x00002c59       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_line    0x00002c73       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_line    0x00002c8d       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_line    0x00002ca7      0x345 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_line    0x00002fec      0x4c2 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_line    0x000034ae      0x1e1 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_line    0x0000368f      0x3be obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_line    0x00003a4d       0x72 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.o
+ .debug_line    0x00003abf       0x1a obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/HostStandardReq.o
+ .debug_line    0x00003ad9      0x1da obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_line    0x00003cb3      0x1e5 obj_split_keyboard/common/host.o
+ .debug_line    0x00003e98      0x1cf obj_split_keyboard/common/keyboard.o
+ .debug_line    0x00004067      0x3c5 obj_split_keyboard/common/action.o
+ .debug_line    0x0000442c      0x29a obj_split_keyboard/common/action_tapping.o
+ .debug_line    0x000046c6      0x1db obj_split_keyboard/common/action_macro.o
+ .debug_line    0x000048a1      0x21c obj_split_keyboard/common/action_layer.o
+ .debug_line    0x00004abd      0x3a5 obj_split_keyboard/common/action_util.o
+ .debug_line    0x00004e62       0xe5 obj_split_keyboard/common/print.o
+ .debug_line    0x00004f47       0xb8 obj_split_keyboard/common/debug.o
+ .debug_line    0x00004fff      0x1ca obj_split_keyboard/common/util.o
+ .debug_line    0x000051c9      0x1c9 obj_split_keyboard/common/avr/suspend.o
+ .debug_line    0x00005392      0x184 obj_split_keyboard/common/avr/timer.o
+ .debug_line    0x00005516      0x1b1 obj_split_keyboard/common/avr/bootloader.o
+ .debug_line    0x000056c7      0x178 obj_split_keyboard/common/actionmap.o
+ .debug_line    0x0000583f      0x2a3 obj_split_keyboard/common/bootmagic.o
+ .debug_line    0x00005ae2      0x15a obj_split_keyboard/common/avr/eeconfig.o
+ .debug_line    0x00005c3c      0x363 obj_split_keyboard/common/mousekey.o
+ .debug_line    0x00005f9f      0x39b obj_split_keyboard/common/command.o
+ .debug_line    0x0000633a      0x112 obj_split_keyboard/common/sleep_led.o
+ .debug_line    0x0000644c       0x92 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_line    0x000064de       0x99 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_divmodhi4.o)
+ .debug_line    0x00006577       0x88 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_line    0x000065ff       0x91 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_line    0x00006690       0x8e c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_line    0x0000671e       0x9a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
 
 .debug_frame    0x00000000     0x2034
  *(.debug_frame)
@@ -1902,38 +1902,38 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.6
  .debug_str     0x00004995       0x90 obj_split_keyboard/common/sleep_led.o
                                 0x17c (size before relaxing)
 
-.debug_loc      0x00000000     0x78f3
+.debug_loc      0x00000000     0x78d4
  *(.debug_loc)
  .debug_loc     0x00000000      0x394 obj_split_keyboard/actionmap_plain.o
- .debug_loc     0x00000394      0x59c obj_split_keyboard/matrix.o
- .debug_loc     0x00000930      0x436 obj_split_keyboard/i2c.o
- .debug_loc     0x00000d66      0x3ac obj_split_keyboard/serial.o
- .debug_loc     0x00001112      0x55f obj_split_keyboard/protocol/lufa/lufa.o
- .debug_loc     0x00001671      0x1ac obj_split_keyboard/protocol/lufa/descriptor.o
- .debug_loc     0x0000181d      0xb47 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_loc     0x00002364     0x1bc4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_loc     0x00003f28      0x361 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_loc     0x00004289       0x49 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_loc     0x000042d2      0x333 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_loc     0x00004605      0x433 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_loc     0x00004a38      0x284 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_loc     0x00004cbc       0x49 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
- .debug_loc     0x00004d05       0xe4 obj_split_keyboard/common/host.o
- .debug_loc     0x00004de9      0x161 obj_split_keyboard/common/keyboard.o
- .debug_loc     0x00004f4a      0x71e obj_split_keyboard/common/action.o
- .debug_loc     0x00005668      0x415 obj_split_keyboard/common/action_tapping.o
- .debug_loc     0x00005a7d      0x452 obj_split_keyboard/common/action_macro.o
- .debug_loc     0x00005ecf      0x371 obj_split_keyboard/common/action_layer.o
- .debug_loc     0x00006240      0x233 obj_split_keyboard/common/action_util.o
- .debug_loc     0x00006473      0x4a1 obj_split_keyboard/common/util.o
- .debug_loc     0x00006914       0x54 obj_split_keyboard/common/avr/suspend.o
- .debug_loc     0x00006968      0x238 obj_split_keyboard/common/avr/timer.o
- .debug_loc     0x00006ba0       0x5b obj_split_keyboard/common/actionmap.o
- .debug_loc     0x00006bfb      0x247 obj_split_keyboard/common/bootmagic.o
- .debug_loc     0x00006e42       0x5a obj_split_keyboard/common/avr/eeconfig.o
- .debug_loc     0x00006e9c      0x303 obj_split_keyboard/common/mousekey.o
- .debug_loc     0x0000719f      0x676 obj_split_keyboard/common/command.o
- .debug_loc     0x00007815       0xde obj_split_keyboard/common/sleep_led.o
+ .debug_loc     0x00000394      0x57d obj_split_keyboard/matrix.o
+ .debug_loc     0x00000911      0x436 obj_split_keyboard/i2c.o
+ .debug_loc     0x00000d47      0x3ac obj_split_keyboard/serial.o
+ .debug_loc     0x000010f3      0x55f obj_split_keyboard/protocol/lufa/lufa.o
+ .debug_loc     0x00001652      0x1ac obj_split_keyboard/protocol/lufa/descriptor.o
+ .debug_loc     0x000017fe      0xb47 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_loc     0x00002345     0x1bc4 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_loc     0x00003f09      0x361 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_loc     0x0000426a       0x49 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_loc     0x000042b3      0x333 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_loc     0x000045e6      0x433 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_loc     0x00004a19      0x284 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_loc     0x00004c9d       0x49 obj_split_keyboard/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_loc     0x00004ce6       0xe4 obj_split_keyboard/common/host.o
+ .debug_loc     0x00004dca      0x161 obj_split_keyboard/common/keyboard.o
+ .debug_loc     0x00004f2b      0x71e obj_split_keyboard/common/action.o
+ .debug_loc     0x00005649      0x415 obj_split_keyboard/common/action_tapping.o
+ .debug_loc     0x00005a5e      0x452 obj_split_keyboard/common/action_macro.o
+ .debug_loc     0x00005eb0      0x371 obj_split_keyboard/common/action_layer.o
+ .debug_loc     0x00006221      0x233 obj_split_keyboard/common/action_util.o
+ .debug_loc     0x00006454      0x4a1 obj_split_keyboard/common/util.o
+ .debug_loc     0x000068f5       0x54 obj_split_keyboard/common/avr/suspend.o
+ .debug_loc     0x00006949      0x238 obj_split_keyboard/common/avr/timer.o
+ .debug_loc     0x00006b81       0x5b obj_split_keyboard/common/actionmap.o
+ .debug_loc     0x00006bdc      0x247 obj_split_keyboard/common/bootmagic.o
+ .debug_loc     0x00006e23       0x5a obj_split_keyboard/common/avr/eeconfig.o
+ .debug_loc     0x00006e7d      0x303 obj_split_keyboard/common/mousekey.o
+ .debug_loc     0x00007180      0x676 obj_split_keyboard/common/command.o
+ .debug_loc     0x000077f6       0xde obj_split_keyboard/common/sleep_led.o
 
 .debug_macinfo
  *(.debug_macinfo)

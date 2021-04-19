@@ -9,8 +9,17 @@
 #
 # make extcoff = Convert ELF to AVR Extended COFF.
 #
-# make program = Download the hex file to the device.
+# make program = Download the hex file to the device at predefined COM_PORT: com4.
 #                Please customize your programmer settings(PROGRAM_CMD)
+#
+# make program COM_PORT=<com#> = Download the hex file to the device at com#.
+#                Please customize your programmer settings(PROGRAM_CMD)
+#
+# make eeprom-left  = Flash EEPROM configuration for left keyboard half at predefined COM_PORT: com4.
+# make eeprom-right = Flash EEPROM configuration for right keyboard half at predefined COM_PORT: com4.
+#
+# make eeprom-left COM_PORT=<com#>  = Flash EEPROM configuration for left keyboard half
+# make eeprom-right COM_PORT=<com#> = Flash EEPROM configuration for right keyboard half
 #
 # make teensy = Download the hex file to the device, using teensy_loader_cli.
 #               (must have teensy_loader_cli installed).
@@ -59,8 +68,8 @@ CONFIG_H = config.h
 # MCU name
 MCU = atmega32u4
 
-COM_PORT=com4
-PROGRAM_CMD=sleep 3; avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U flash:w:$(TARGET).hex
+COM_PORT=com6
+PROGRAM_CMD=avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U flash:w:$(TARGET).hex
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
