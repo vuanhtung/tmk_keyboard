@@ -52,7 +52,7 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             Y    , U    , I    , O    , P    , EQL  ,
             H    , J    , K    , L    , SCLN , LBRC ,
             N    , M    , COMM , DOT  , SLSH , RBRC ,
-            BSPC , DOWN , UP   , QUOT , BSLS , FN0
+            ENT  , DOWN , UP   , QUOT , BSLS , FN0
     ),
     // /* dvorak */
     // [1] = ACTIONMAP(
@@ -97,10 +97,10 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [4] = ACTIONMAP(
         /* left hand */
             GRAVE, F1   , F2   , F3   , F4   , F5   ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , VOLU ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , VOLD ,
+            TRNS , TRNS , UP   , TRNS , TRNS , VOLU ,
+            TRNS , LEFT , DOWN , RIGHT, TRNS , VOLD ,
             TRNS , TRNS , TRNS , TRNS , TRNS , MUTE ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , ENT  ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , BSPC ,
         /* right hand */
             F6   , F7   , F8   , F9   , F10  , F11  ,
             PSCR , SLCK , PAUS , TRNS , TRNS , F12  ,
