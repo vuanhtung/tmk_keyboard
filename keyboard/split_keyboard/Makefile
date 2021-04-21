@@ -68,7 +68,7 @@ CONFIG_H = config.h
 # MCU name
 MCU = atmega32u4
 
-COM_PORT=com6
+COM_PORT=com4
 PROGRAM_CMD=avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U flash:w:$(TARGET).hex
 
 # Processor frequency.
