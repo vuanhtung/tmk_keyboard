@@ -46,13 +46,13 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TAB  , Q    , W    , E    , R    , T    ,
             CAPS , A    , S    , D    , F    , G    ,
             LSFT , Z    , X    , C    , V    , B    ,
-            LCTL , LGUI , LALT , LEFT , RIGHT, SPACE,
+            LCTL , LGUI , LALT , FN0  , BSPC , SPACE,
         /* right hand */
             6    , 7    , 8    , 9    , 0    , MINS ,
             Y    , U    , I    , O    , P    , EQL  ,
             H    , J    , K    , L    , SCLN , LBRC ,
             N    , M    , COMM , DOT  , SLSH , RBRC ,
-            ENT  , DOWN , UP   , QUOT , BSLS , FN0
+            ENT  , RSFT , FN0  , QUOT , BSLS , DEL
     ),
     // /* dvorak */
     // [1] = ACTIONMAP(
@@ -100,11 +100,11 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TRNS , TRNS , UP   , TRNS , TRNS , VOLU ,
             TRNS , LEFT , DOWN , RIGHT, TRNS , VOLD ,
             TRNS , TRNS , TRNS , TRNS , TRNS , MUTE ,
-            TRNS , TRNS , TRNS , TRNS , TRNS , BSPC ,
+            TRNS , TRNS , TRNS , TRNS , TRNS , TRNS ,
         /* right hand */
             F6   , F7   , F8   , F9   , F10  , F11  ,
-            PSCR , SLCK , PAUS , TRNS , TRNS , F12  ,
-            INS  , HOME , PGUP , TRNS , TRNS , TRNS ,
+            PSCR , SLCK , PAUS , TRNS , UP   , F12  ,
+            INS  , HOME , PGUP , LEFT , DOWN , RIGHT,
             DEL  , END  , PGDN , TRNS , TRNS , TRNS ,
             TRNS , TRNS , TRNS , TRNS , TRNS , TRNS
     ),
