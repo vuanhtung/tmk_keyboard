@@ -98,14 +98,14 @@ const uint16_t PROGMEM actionmaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* left hand */
             GRAVE, F1   , F2   , F3   , F4   , F5   ,
             TRNS , TRNS , UP   , LBRC , RBRC , EQUAL,
-            TRNS , LEFT , DOWN , RIGHT, TRNS , VOLU ,
-            MSTP , MPRV , MNXT , MPLY , MUTE , VOLD ,
+            TRNS , LEFT , DOWN , RIGHT, MUTE , VOLU ,
+            TRNS , MSTP , MPRV , MNXT , MPLY , VOLD ,
             TRNS , TRNS , TRNS , TRNS , TRNS , ENT  ,
         /* right hand */
             F6   , F7   , F8   , F9   , F10  , F11  ,
             PSCR , SLCK , PAUS , TRNS , UP   , F12  ,
             INS  , HOME , PGUP , LEFT , DOWN , RIGHT,
-            DEL  , END  , PGDN , MPRV , MNXT , MPLY ,
+            DEL  , END  , PGDN , MSTP , MPLY , TRNS ,
             ENT  , TRNS , TRNS , TRNS , TRNS , TRNS
     ),
     // /* media */
